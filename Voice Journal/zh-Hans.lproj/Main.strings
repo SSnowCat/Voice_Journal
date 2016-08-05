@@ -1,0 +1,78 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "1qr-Ti-hN6"; */
+"1qr-Ti-hN6.text" = "Title";
+
+/* Class = "UILabel"; text = "："; ObjectID = "2t1-7r-9YU"; */
+"2t1-7r-9YU.text" = "：";
+
+/* Class = "UILabel"; text = "Weeks"; ObjectID = "4eY-Nd-Lyv"; */
+"4eY-Nd-Lyv.text" = "Weeks";
+
+/* Class = "UILabel"; text = "MEMORY"; ObjectID = "51g-YQ-Mrf"; */
+"51g-YQ-Mrf.text" = "MEMORY";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "8MA-9s-cDe"; */
+"8MA-9s-cDe.text" = "00";
+
+/* Class = "UILabel"; text = "2"; ObjectID = "9OS-im-H0Z"; */
+"9OS-im-H0Z.text" = "2";
+
+/* Class = "UILabel"; text = "Play"; ObjectID = "ClM-Je-YhD"; */
+"ClM-Je-YhD.text" = "Play";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "I6f-BM-bvG"; */
+"I6f-BM-bvG.text" = "10";
+
+/* Class = "UILabel"; text = "16℃"; ObjectID = "J8x-JY-OBJ"; */
+"J8x-JY-OBJ.text" = "16℃";
+
+/* Class = "UILabel"; text = "Stop"; ObjectID = "Jol-zB-v8k"; */
+"Jol-zB-v8k.text" = "Stop";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "KcT-Kd-Qxr"; */
+"KcT-Kd-Qxr.text" = "00";
+
+/* Class = "UILabel"; text = "First Day"; ObjectID = "MOO-As-xPK"; */
+"MOO-As-xPK.text" = "First Day";
+
+/* Class = "UILabel"; text = "Chengdu，China"; ObjectID = "NG9-3A-Ggi"; */
+"NG9-3A-Ggi.text" = "Chengdu，China";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "PnG-Pq-rXK"; */
+"PnG-Pq-rXK.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Qhb-PP-Ls3"; */
+"Qhb-PP-Ls3.normalTitle" = "Done";
+
+/* Class = "UILabel"; text = "27 "; ObjectID = "ad3-D9-Hm2"; */
+"ad3-D9-Hm2.text" = "27 ";
+
+/* Class = "UILabel"; text = "："; ObjectID = "bng-ht-c4d"; */
+"bng-ht-c4d.text" = "：";
+
+/* Class = "UILabel"; text = "Days"; ObjectID = "d3P-GP-eTS"; */
+"d3P-GP-eTS.text" = "Days";
+
+/* Class = "UILabel"; text = "Recording"; ObjectID = "jUQ-uq-WPS"; */
+"jUQ-uq-WPS.text" = "Recording";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "kx0-6g-m78"; */
+"kx0-6g-m78.text" = "00";
+
+/* Class = "UILabel"; text = "Entries"; ObjectID = "lg7-Mq-KUU"; */
+"lg7-Mq-KUU.text" = "Entries";
+
+/* Class = "UILabel"; text = "Start"; ObjectID = "n1B-jT-epp"; */
+"n1B-jT-epp.text" = "Start";
+
+/* Class = "UILabel"; text = "RECENT WORK"; ObjectID = "ufQ-6H-dYr"; */
+"ufQ-6H-dYr.text" = "RECENT WORK";
+
+/* Class = "UITextView"; text = "Well,that’s that.\nYou know how many times I ask you that?时间啊嘻哈生效后骄傲啥时下班哈事实上事实上事实上事实上事实上事实上继续货架上的顶顶顶顶顶的顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶大调查v"; ObjectID = "xA6-a5-8qm"; */
+"xA6-a5-8qm.text" = "Well,that’s that.\nYou know how many times I ask you that?时间啊嘻哈生效后骄傲啥时下班哈事实上事实上事实上事实上事实上事实上继续货架上的顶顶顶顶顶的顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶大调查v";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "xAq-YF-Ghd"; */
+"xAq-YF-Ghd.text" = "Today";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "zHB-pG-voh"; */
+"zHB-pG-voh.normalTitle" = "Cancel";
