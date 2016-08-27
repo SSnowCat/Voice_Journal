@@ -10,7 +10,7 @@
 #import "NewPassCodeViewController.h"
 #import "ViewController.h"
 #import "OldPasscodeViewController.h"
-
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 @interface SettingViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *dataSource;
@@ -42,7 +42,7 @@
     if (indexPath.row == 0) {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, cell.contentView.frame.size.height)];
         [cell.contentView addSubview:label];
-        UISwitch *select = [[UISwitch alloc]initWithFrame:CGRectMake(310, 5, 20, cell.contentView.frame.size.height)];
+        UISwitch *select = [[UISwitch alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-60, 5, 20, cell.contentView.frame.size.height)];
         [select addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
         select.tag = indexPath.section*10 + indexPath.row;
         if ([[values objectAtIndex:row] isEqualToString:@"Passcode"]) {

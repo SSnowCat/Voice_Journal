@@ -440,10 +440,10 @@
             }
         }
     }
-    self.entries.text = [NSString stringWithFormat:@"%lu",self.total.count];
-    self.today.text = [NSString stringWithFormat:@"%lu",self.todaycount.count];
-    self.days.text = [NSString stringWithFormat:@"%lu",self.dayscount.count];
-    self.weeks.text = [NSString stringWithFormat:@"%lu",self.weekscount.count];
+    self.entries.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.total.count];
+    self.today.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.todaycount.count];
+    self.days.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.dayscount.count];
+    self.weeks.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.weekscount.count];
 }
 -(NSString *)getTime{
     NSDate * date = [NSDate date];
