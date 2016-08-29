@@ -248,12 +248,16 @@
             NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
         } else {
             NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSDictionary *weatherResult= [weatherDic objectForKey:@"retData"];
             //展示结果
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSDictionary *weatherResult= [weatherDic objectForKey:@"retData"];
-                NSString *tem = [NSString stringWithFormat:@"%@/%@℃",[weatherResult objectForKey:@"l_tmp"],[weatherResult objectForKey:@"h_tmp"]];
-                self.weatherLabel.text = tem;
-            });
+            if (weatherResult.count == 0) {
+                self.weatherLabel.text = @"－－";
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *tem = [NSString stringWithFormat:@"%@/%@℃",[weatherResult objectForKey:@"l_tmp"],[weatherResult objectForKey:@"h_tmp"]];
+                    self.weatherLabel.text = tem;
+                });
+            }
         }
     }];
     [datatask resume];
