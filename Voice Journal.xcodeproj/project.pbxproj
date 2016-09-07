@@ -22,6 +22,7 @@
 		D83173FC1CCCA2E00014A844 /* OldPasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83173FB1CCCA2E00014A844 /* OldPasscodeViewController.m */; };
 		D83174001CCCB1FA0014A844 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83173FF1CCCB1FA0014A844 /* LocalAuthentication.framework */; };
 		D83DEF6B1CB3D6B400661A48 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = D83DEF6A1CB3D6B400661A48 /* Record.m */; };
+		D83F08C11D8070CF0000E0E7 /* ImgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D83F08C01D8070CF0000E0E7 /* ImgUtil.m */; };
 		D83F8EDB1CE89CDA00951185 /* Rectangle 313.png in Resources */ = {isa = PBXBuildFile; fileRef = D83F8ED81CE89CDA00951185 /* Rectangle 313.png */; };
 		D83F8EDC1CE89CDA00951185 /* Rectangle 313@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83F8ED91CE89CDA00951185 /* Rectangle 313@2x.png */; };
 		D83F8EDD1CE89CDA00951185 /* Rectangle 313@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83F8EDA1CE89CDA00951185 /* Rectangle 313@3x.png */; };
@@ -166,6 +167,8 @@
 		D83173FF1CCCB1FA0014A844 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		D83DEF691CB3D6B400661A48 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		D83DEF6A1CB3D6B400661A48 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		D83F08BF1D8070CF0000E0E7 /* ImgUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgUtil.h; sourceTree = "<group>"; };
+		D83F08C01D8070CF0000E0E7 /* ImgUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgUtil.m; sourceTree = "<group>"; };
 		D83F8ED81CE89CDA00951185 /* Rectangle 313.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 313.png"; sourceTree = "<group>"; };
 		D83F8ED91CE89CDA00951185 /* Rectangle 313@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 313@2x.png"; sourceTree = "<group>"; };
 		D83F8EDA1CE89CDA00951185 /* Rectangle 313@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 313@3x.png"; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				D83DEF6A1CB3D6B400661A48 /* Record.m */,
 				D8DA6B5D1C9FC9B000ACEE70 /* Memory.h */,
 				D8DA6B5E1C9FC9B000ACEE70 /* Memory.m */,
+				D83F08BF1D8070CF0000E0E7 /* ImgUtil.h */,
+				D83F08C01D8070CF0000E0E7 /* ImgUtil.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -825,6 +830,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83DEF6B1CB3D6B400661A48 /* Record.m in Sources */,
+				D83F08C11D8070CF0000E0E7 /* ImgUtil.m in Sources */,
 				D88C656F1CD234FD00F159F0 /* TagsViewController.m in Sources */,
 				D83173FC1CCCA2E00014A844 /* OldPasscodeViewController.m in Sources */,
 				D8F11D1A1CC3AEFA00B95B16 /* TimeLineViewController.m in Sources */,
@@ -938,7 +944,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -975,7 +981,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -988,7 +994,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Voice Journal/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CS.VoiceJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1002,7 +1008,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Voice Journal/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CS.VoiceJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";

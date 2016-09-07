@@ -11,6 +11,7 @@
 #import "Record.h"
 #import "EditViewController.h"
 #import "DiaryViewController.h"
+#import "ImgUtil.h"
 
 @interface PhotosViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -232,66 +233,6 @@ static NSString *cid = @"cid";
     self.picker.allowsEditing = YES;
     [self presentViewController:self.picker animated:YES completion:nil];
 }
-- (UIImage *)fixOrientation:(UIImage *)aImage {
-    if (aImage.imageOrientation == UIImageOrientationUp)
-        return aImage;
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    
-    switch (aImage.imageOrientation) {
-        case UIImageOrientationDown:
-        case UIImageOrientationDownMirrored:
-            transform = CGAffineTransformTranslate(transform, aImage.size.width, aImage.size.height);
-            transform = CGAffineTransformRotate(transform, M_PI);
-            break;
-        case UIImageOrientationLeft:
-        case UIImageOrientationLeftMirrored:
-            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
-            transform = CGAffineTransformRotate(transform, M_PI_2);
-            break;
-        case UIImageOrientationRight:
-        case UIImageOrientationRightMirrored:
-            transform = CGAffineTransformTranslate(transform, 0, aImage.size.height);
-            transform = CGAffineTransformRotate(transform, -M_PI_2);
-            break;
-        default:
-            break;
-    }
-    switch (aImage.imageOrientation) {
-        case UIImageOrientationUpMirrored:
-        case UIImageOrientationDownMirrored:
-            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
-            transform = CGAffineTransformScale(transform, -1, 1);
-            break;
-        case UIImageOrientationLeftMirrored:
-        case UIImageOrientationRightMirrored:
-            transform = CGAffineTransformTranslate(transform, aImage.size.height, 0);
-            transform = CGAffineTransformScale(transform, -1, 1);
-            break;
-        default:
-            break;
-    }
-    CGContextRef ctx = CGBitmapContextCreate(NULL, aImage.size.width, aImage.size.height,
-                                             CGImageGetBitsPerComponent(aImage.CGImage), 0,
-                                             CGImageGetColorSpace(aImage.CGImage),
-                                             CGImageGetBitmapInfo(aImage.CGImage));
-    CGContextConcatCTM(ctx, transform);
-    switch (aImage.imageOrientation) {
-        case UIImageOrientationLeft:
-        case UIImageOrientationLeftMirrored:
-        case UIImageOrientationRight:
-        case UIImageOrientationRightMirrored:
-            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.height,aImage.size.width), aImage.CGImage);
-            break;
-        default:
-            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.width,aImage.size.height), aImage.CGImage);
-            break;
-    }
-    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
-    UIImage *img = [UIImage imageWithCGImage:cgimg];
-    CGContextRelease(ctx);
-    CGImageRelease(cgimg);
-    return img;
-}
 -(void)getImgWithInfo:(NSDictionary *)info{
     NSFileManager *fm = [NSFileManager defaultManager];
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
@@ -299,7 +240,7 @@ static NSString *cid = @"cid";
     if ([type isEqualToString:@"public.image"]){
         //先把图片转成NSData
         UIImage* imageOriginal = [info objectForKey:UIImagePickerControllerOriginalImage];
-        UIImage *image = [self fixOrientation:imageOriginal];
+        UIImage *image = [ImgUtil fixOrientation:imageOriginal];
         if (self.picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
             UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
         }
