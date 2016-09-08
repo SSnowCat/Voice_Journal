@@ -8,7 +8,7 @@
 
 #import "TimeLineViewController.h"
 #import "EditViewController.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "Record.h"
 #import "DiaryViewController.h"
 
@@ -253,16 +253,16 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:NO];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Nav Bar"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     self.title = @"Timeline";
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],NSFontAttributeName,[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
     
     UIButton *addEdit = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 20)];
-    [addEdit setImage:[UIImage imageNamed:@"Add Icon Copy 2@2x.png"] forState:UIControlStateNormal];
+    [addEdit setImage:[UIImage imageNamed:@"Top Add Icon"] forState:UIControlStateNormal];
     [addEdit addTarget:self action:@selector(addEdit) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:addEdit];
-    self.navigationItem.rightBarButtonItem=barBtn1;
+    self.navigationItem.rightBarButtonItem = barBtn1;
 }
 /*
 #pragma mark - Navigation

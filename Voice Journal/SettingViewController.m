@@ -8,7 +8,7 @@
 
 #import "SettingViewController.h"
 #import "NewPassCodeViewController.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "OldPasscodeViewController.h"
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 @interface SettingViewController ()
@@ -139,10 +139,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:NO];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Nav Bar"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     self.title = @"Setting";
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],NSFontAttributeName,[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

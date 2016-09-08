@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,12 +8,12 @@
         <!--Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="first_id" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first_id" id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Top View Copy.png" id="Hwg-lL-Kra">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Top View" id="Hwg-lL-Kra">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -27,7 +27,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dym-MC-AMA">
                                 <rect key="frame" x="279" y="32" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Add Icon.png"/>
+                                <state key="normal" image="Top Add Icon"/>
                                 <connections>
                                     <action selector="addNew:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yX0-CH-UCP"/>
                                 </connections>
@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2EN-dA-wbo">
                                 <rect key="frame" x="50" y="118" width="96" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Camera Icon Copy.png"/>
+                                <state key="normal" image="Camera Icon"/>
                                 <connections>
                                     <action selector="camera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPi-JU-e30"/>
                                 </connections>
@@ -43,7 +43,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OLW-Aw-YQ3">
                                 <rect key="frame" x="219" y="118" width="62" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Record Icon Copy.png"/>
+                                <state key="normal" backgroundImage="Record Icon"/>
                                 <connections>
                                     <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S1f-m5-TER"/>
                                 </connections>
@@ -55,11 +55,11 @@
                                 <color key="textColor" red="0.50196078431372548" green="0.52941176470588236" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle 1.png" id="QnR-GW-eEr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle 1" id="QnR-GW-eEr">
                                 <rect key="frame" x="139" y="250" width="7" height="5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 17.png" id="hd7-DS-LZi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle" id="hd7-DS-LZi">
                                 <rect key="frame" x="38" y="274" width="10" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -70,25 +70,14 @@
                                 <color key="textColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star 3 Copy.png" id="vIo-MP-Vgd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" id="vIo-MP-Vgd">
                                 <rect key="frame" x="111" y="273" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tags Icon Copy 4.png" id="XBA-8D-4EU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag Icon Small" id="XBA-8D-4EU">
                                 <rect key="frame" x="131" y="274" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="F13-cd-ij7">
-                                <rect key="frame" x="191" y="271" width="50" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MOO-As-xPK">
-                                <rect key="frame" x="191" y="272" width="50" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" red="0.41960784313725491" green="0.46666666666666667" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="9999" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" editable="NO" id="xA6-a5-8qm">
                                 <rect key="frame" x="45" y="294" width="240" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -97,7 +86,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line.png" id="TDJ-3S-qr3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Separate Line" id="TDJ-3S-qr3">
                                 <rect key="frame" x="45" y="393" width="240" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -160,7 +149,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WAs-0B-efw">
                                 <rect key="frame" x="29" y="471" width="29" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Timeline Icon Copy.png"/>
+                                <state key="normal" image="Timeline Icon"/>
                                 <connections>
                                     <action selector="timeline:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dR5-xJ-QLy"/>
                                 </connections>
@@ -168,7 +157,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Kp6-tK-MoB">
                                 <rect key="frame" x="149" y="471" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Tags Icon.png"/>
+                                <state key="normal" image="Tag Icon"/>
                                 <connections>
                                     <action selector="tags:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9N-uS-87B"/>
                                 </connections>
@@ -176,7 +165,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UIp-y9-6Sz">
                                 <rect key="frame" x="89" y="469" width="29" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Photos Icon.png"/>
+                                <state key="normal" image="Photo Icon"/>
                                 <connections>
                                     <action selector="photos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sfy-3a-4vy"/>
                                 </connections>
@@ -184,7 +173,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QV5-wf-gg4">
                                 <rect key="frame" x="207" y="469" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Starred Icon.png"/>
+                                <state key="normal" image="Star Icon"/>
                                 <connections>
                                     <action selector="star:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b1v-7H-fwi"/>
                                 </connections>
@@ -192,7 +181,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7fT-la-gLp">
                                 <rect key="frame" x="265" y="469" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Settings Button Copy.png"/>
+                                <state key="normal" backgroundImage="Setting Icon"/>
                                 <connections>
                                     <action selector="setting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zJL-GX-IGH"/>
                                 </connections>
@@ -216,23 +205,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photos Icon Copy 2.png" id="sOC-Bv-lyZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hasPhoto" id="sOC-Bv-lyZ">
                                 <rect key="frame" x="151" y="274" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle 1 Copy2.png" id="ORI-fM-uDU">
-                                <rect key="frame" x="171" y="274" width="12" height="12"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="F13-cd-ij7">
+                                <rect key="frame" x="171" y="272" width="50" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="8c2-yk-IYi">
-                                <rect key="frame" x="251" y="271" width="50" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qx8-U1-xk2">
-                                <rect key="frame" x="251" y="272" width="50" height="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MOO-As-xPK">
+                                <rect key="frame" x="171" y="273" width="50" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <color key="textColor" red="0.36470588235294116" green="0.4392156862745098" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.41960784313725491" green="0.46666666666666667" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -246,14 +231,11 @@
                         <outlet property="days" destination="I6f-BM-bvG" id="cja-4w-t5d"/>
                         <outlet property="entries" destination="ad3-D9-Hm2" id="Tkj-YT-6F9"/>
                         <outlet property="memory" destination="bQ4-hB-3K1" id="JHD-29-XTb"/>
-                        <outlet property="moreTag" destination="qx8-U1-xk2" id="wRo-DT-afX"/>
                         <outlet property="photoImg" destination="sOC-Bv-lyZ" id="Zjc-Aw-rGD"/>
                         <outlet property="recentLabel" destination="ufQ-6H-dYr" id="ZbT-mU-QiP"/>
-                        <outlet property="recordImg" destination="ORI-fM-uDU" id="niP-Bc-Lnh"/>
                         <outlet property="starImg" destination="vIo-MP-Vgd" id="53B-Ya-mNq"/>
                         <outlet property="tagIcon" destination="XBA-8D-4EU" id="gZc-R2-Ogd"/>
                         <outlet property="tagImg" destination="F13-cd-ij7" id="O4Y-j7-AXz"/>
-                        <outlet property="tagImg1" destination="8c2-yk-IYi" id="2tw-Ou-6Wk"/>
                         <outlet property="textLabel" destination="1qr-Ti-hN6" id="R5K-hA-aPZ"/>
                         <outlet property="textView" destination="xA6-a5-8qm" id="ONL-1k-22b"/>
                         <outlet property="titleLabel" destination="MOO-As-xPK" id="EnS-vZ-N3P"/>
@@ -284,7 +266,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T1N-ny-dRE">
                                 <rect key="frame" x="12" y="252" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group.png"/>
+                                <state key="normal" image="Play"/>
                                 <connections>
                                     <action selector="play:" destination="iIa-5w-0Cl" eventType="touchUpInside" id="jh4-40-FxE"/>
                                 </connections>
@@ -292,7 +274,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2xW-hj-Oxm">
                                 <rect key="frame" x="230" y="252" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group 2.png"/>
+                                <state key="normal" image="Stop"/>
                                 <connections>
                                     <action selector="stop:" destination="iIa-5w-0Cl" eventType="touchUpInside" id="0oQ-Py-0N2"/>
                                 </connections>
@@ -300,7 +282,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pmC-Zc-CAF">
                                 <rect key="frame" x="125" y="252" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group 3.png"/>
+                                <state key="normal" image="Start"/>
                                 <connections>
                                     <action selector="start:" destination="iIa-5w-0Cl" eventType="touchUpInside" id="yzo-3f-vpW"/>
                                 </connections>
@@ -475,14 +457,14 @@
                                 <color key="textColor" red="0.49411764705882355" green="0.50196078431372548" blue="0.51764705882352946" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star 3 Copy 2.png" id="CnY-Ca-dgh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Starred" id="CnY-Ca-dgh">
                                 <rect key="frame" x="200" y="530" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HNM-lY-4qy">
                                 <rect key="frame" x="240" y="530" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Triangle 1 Copy2.png"/>
+                                <state key="normal" image="hasRecord"/>
                                 <connections>
                                     <action selector="play:" destination="afb-ga-VDK" eventType="touchUpInside" id="fXR-Cr-7GY"/>
                                 </connections>
@@ -502,27 +484,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tags Icon Copy 4.png" id="1V1-Zs-7sa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hasTag" id="1V1-Zs-7sa">
                                 <rect key="frame" x="280" y="530" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="7cb-7H-BZM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="7cb-7H-BZM">
                                 <rect key="frame" x="255" y="499" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="8jr-qr-69o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="8jr-qr-69o">
                                 <rect key="frame" x="195" y="499" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="pEk-R9-00Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="pEk-R9-00Z">
                                 <rect key="frame" x="75" y="499" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="EE5-jM-YSz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="EE5-jM-YSz">
                                 <rect key="frame" x="15" y="499" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="ffF-sS-Ffb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="ffF-sS-Ffb">
                                 <rect key="frame" x="135" y="499" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -683,11 +665,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line.png" id="Ory-DM-Osj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Separate Line" id="Ory-DM-Osj">
                                 <rect key="frame" x="5" y="33" width="310" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="dz2-XB-A1o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="dz2-XB-A1o">
                                 <rect key="frame" x="15" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -701,12 +683,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ftd-mE-nrR">
                                 <rect key="frame" x="55" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del1:" destination="yLl-Bu-xzB" eventType="touchUpInside" id="U3D-SR-auK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="gIZ-TI-MAj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="gIZ-TI-MAj">
                                 <rect key="frame" x="75" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -720,12 +702,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZSE-EX-NxQ">
                                 <rect key="frame" x="115" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del2:" destination="yLl-Bu-xzB" eventType="touchUpInside" id="Npu-bw-sMt"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="Lg9-he-AuY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="Lg9-he-AuY">
                                 <rect key="frame" x="135" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -739,12 +721,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XLf-xU-aiy">
                                 <rect key="frame" x="175" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del3:" destination="yLl-Bu-xzB" eventType="touchUpInside" id="cVd-OK-veF"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="yif-dK-xHO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="yif-dK-xHO">
                                 <rect key="frame" x="195" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -758,12 +740,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1SV-9o-FdJ">
                                 <rect key="frame" x="235" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del4:" destination="yLl-Bu-xzB" eventType="touchUpInside" id="p7O-Gh-OKl"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="xrs-wg-jU2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="xrs-wg-jU2">
                                 <rect key="frame" x="255" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -777,7 +759,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kNm-Kj-3vC">
                                 <rect key="frame" x="295" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del5:" destination="yLl-Bu-xzB" eventType="touchUpInside" id="guD-2d-OUz"/>
                                 </connections>
@@ -849,22 +831,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="s8F-mN-xrU">
-                                <rect key="frame" x="5" y="240" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="dLo-AM-pkK">
-                                <rect key="frame" x="85" y="240" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="nxU-Xw-y2P">
-                                <rect key="frame" x="165" y="240" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="NMy-ex-19h">
-                                <rect key="frame" x="245" y="240" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a38-Nj-MYU">
                                 <rect key="frame" x="123" y="188" width="75" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -889,6 +855,22 @@
                                     <action selector="cancel:" destination="Huo-EY-8dV" eventType="touchUpInside" id="ten-hK-vFn"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="s8F-mN-xrU">
+                                <rect key="frame" x="5" y="240" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="dLo-AM-pkK">
+                                <rect key="frame" x="85" y="240" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="nxU-Xw-y2P">
+                                <rect key="frame" x="165" y="240" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="NMy-ex-19h">
+                                <rect key="frame" x="245" y="240" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.41568627450980394" green="0.61960784313725492" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -920,19 +902,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="uov-NG-f0b">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="uov-NG-f0b">
                                 <rect key="frame" x="5" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="bBk-ir-EHH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="bBk-ir-EHH">
                                 <rect key="frame" x="85" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="SP1-vb-hLJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="SP1-vb-hLJ">
                                 <rect key="frame" x="165" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="jvT-0C-LfG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="jvT-0C-LfG">
                                 <rect key="frame" x="245" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -989,19 +971,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="y7S-51-VrJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="y7S-51-VrJ">
                                 <rect key="frame" x="5" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="TSf-Oz-LAC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="TSf-Oz-LAC">
                                 <rect key="frame" x="85" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="8xg-xK-EML">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="8xg-xK-EML">
                                 <rect key="frame" x="167" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="n9k-6R-jkb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="n9k-6R-jkb">
                                 <rect key="frame" x="246" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1047,7 +1029,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="viA-a3-fBH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="viA-a3-fBH">
                                 <rect key="frame" x="15" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1061,12 +1043,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tgz-oS-rww">
                                 <rect key="frame" x="55" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del1:" destination="6Or-P4-dmm" eventType="touchUpInside" id="jdr-1z-x4H"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="Ccn-10-DBT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="Ccn-10-DBT">
                                 <rect key="frame" x="75" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1080,12 +1062,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xYe-Yt-Zx8">
                                 <rect key="frame" x="115" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del2:" destination="6Or-P4-dmm" eventType="touchUpInside" id="dIH-h4-IM6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="ApP-7f-fMg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="ApP-7f-fMg">
                                 <rect key="frame" x="135" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1099,12 +1081,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EZ9-01-TDq">
                                 <rect key="frame" x="175" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del3:" destination="6Or-P4-dmm" eventType="touchUpInside" id="mrf-Gk-k2x"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="hue-XD-zDn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="hue-XD-zDn">
                                 <rect key="frame" x="195" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1118,12 +1100,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yTT-iN-AR5">
                                 <rect key="frame" x="235" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del4:" destination="6Or-P4-dmm" eventType="touchUpInside" id="3bb-sw-tCj"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 18 Copy.png" id="5wA-TV-Bv9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tag BG" id="5wA-TV-Bv9">
                                 <rect key="frame" x="255" y="8" width="50" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1137,7 +1119,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EWy-lv-SFg">
                                 <rect key="frame" x="295" y="5" width="12" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group1.png"/>
+                                <state key="normal" image="Delete Btn"/>
                                 <connections>
                                     <action selector="del5:" destination="6Or-P4-dmm" eventType="touchUpInside" id="4Ae-IY-HUV"/>
                                 </connections>
@@ -1149,7 +1131,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line.png" id="cMO-qn-ZxZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Separate Line" id="cMO-qn-ZxZ">
                                 <rect key="frame" x="5" y="33" width="310" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1201,19 +1183,19 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="iTd-3a-26S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="iTd-3a-26S">
                                 <rect key="frame" x="5" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="0hQ-03-jla">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="0hQ-03-jla">
                                 <rect key="frame" x="85" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="cKe-Ze-Pv3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="cKe-Ze-Pv3">
                                 <rect key="frame" x="165" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oval 133 Copy 3.png" id="6Tz-6s-F65">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasscodeCircle" id="6Tz-6s-F65">
                                 <rect key="frame" x="245" y="240" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1241,28 +1223,29 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add Icon.png" width="22" height="22"/>
-        <image name="Camera Icon Copy.png" width="110" height="83"/>
-        <image name="Group 2.png" width="66" height="66"/>
-        <image name="Group 3.png" width="66" height="66"/>
-        <image name="Group.png" width="66" height="66"/>
-        <image name="Group1.png" width="20" height="20"/>
-        <image name="Line.png" width="282" height="1"/>
-        <image name="Oval 133 Copy 3.png" width="84" height="84"/>
-        <image name="Photos Icon Copy 2.png" width="16" height="15"/>
-        <image name="Photos Icon.png" width="33" height="31"/>
-        <image name="Record Icon Copy.png" width="75" height="91"/>
-        <image name="Rectangle 17.png" width="10" height="10"/>
-        <image name="Rectangle 18 Copy.png" width="57" height="15"/>
-        <image name="Settings Button Copy.png" width="31" height="30"/>
-        <image name="Star 3 Copy 2.png" width="12" height="12"/>
-        <image name="Star 3 Copy.png" width="12" height="12"/>
-        <image name="Starred Icon.png" width="29" height="27"/>
-        <image name="Tags Icon Copy 4.png" width="12" height="13"/>
-        <image name="Tags Icon.png" width="31" height="32"/>
-        <image name="Timeline Icon Copy.png" width="31" height="29"/>
-        <image name="Top View Copy.png" width="375" height="282"/>
-        <image name="Triangle 1 Copy2.png" width="24" height="33"/>
-        <image name="Triangle 1.png" width="7" height="5"/>
+        <image name="Camera Icon" width="110" height="83"/>
+        <image name="Delete Btn" width="20" height="20"/>
+        <image name="PasscodeCircle" width="84" height="84"/>
+        <image name="Photo Icon" width="33" height="31"/>
+        <image name="Play" width="66" height="66"/>
+        <image name="Record Icon" width="75" height="91"/>
+        <image name="Rectangle" width="10" height="10"/>
+        <image name="Separate Line" width="282" height="1"/>
+        <image name="Setting Icon" width="32" height="32"/>
+        <image name="Star" width="12" height="12"/>
+        <image name="Star Icon" width="29" height="27"/>
+        <image name="Starred" width="29" height="27"/>
+        <image name="Start" width="66" height="66"/>
+        <image name="Stop" width="66" height="66"/>
+        <image name="Tag BG" width="64" height="22"/>
+        <image name="Tag Icon" width="31" height="32"/>
+        <image name="Tag Icon Small" width="12" height="13"/>
+        <image name="Timeline Icon" width="31" height="29"/>
+        <image name="Top Add Icon" width="18" height="18"/>
+        <image name="Top View" width="375" height="282"/>
+        <image name="Triangle 1" width="7" height="5"/>
+        <image name="hasPhoto" width="16" height="15"/>
+        <image name="hasRecord" width="10" height="14"/>
+        <image name="hasTag" width="12" height="13"/>
     </resources>
 </document>

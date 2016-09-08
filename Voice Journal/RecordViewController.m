@@ -8,7 +8,7 @@
 
 #import "RecordViewController.h"
 #import "Record.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "EditViewController.h"
 
 

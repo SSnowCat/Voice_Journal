@@ -53,10 +53,10 @@
     [self.tagsArr removeObjectAtIndex:0];
     [self settagsLabel];
     if (self.tagsArr.count == 0) {
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = YES;
     }else{
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = NO;
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
     }
@@ -65,10 +65,10 @@
     [self.tagsArr removeObjectAtIndex:1];
     [self settagsLabel];
     if (self.tagsArr.count == 0) {
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = YES;
     }else{
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = NO;
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
     }
@@ -77,10 +77,10 @@
     [self.tagsArr removeObjectAtIndex:2];
     [self settagsLabel];
     if (self.tagsArr.count == 0) {
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = YES;
     }else{
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = NO;
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
     }
@@ -89,10 +89,10 @@
     [self.tagsArr removeObjectAtIndex:3];
     [self settagsLabel];
     if (self.tagsArr.count == 0) {
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = YES;
     }else{
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = NO;
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
     }
@@ -101,10 +101,10 @@
     [self.tagsArr removeObjectAtIndex:4];
     [self settagsLabel];
     if (self.tagsArr.count == 0) {
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = YES;
     }else{
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = NO;
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
     }
@@ -231,7 +231,7 @@
 }
 -(void)settagsLabel{
     if (self.tagsArr.count == 0) {
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
         self.del1btn.hidden = YES;
         self.del2btn.hidden = YES;
         self.del3btn.hidden = YES;
@@ -250,7 +250,7 @@
         self.tagbtn.hidden = NO;
         self.tagbtn.enabled = YES;
     }else{
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
         self.tagsLabel.hidden = NO;
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
         switch (self.tagsArr.count) {
@@ -386,20 +386,20 @@
     self.starbtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.7, 5, 50, 50)];
     
     if (self.voicePath != nil) {
-        [self.recordbtn setImage:[UIImage imageNamed:@"Triangle 1 Copy2@2x.png"] forState:UIControlStateNormal];
+        [self.recordbtn setImage:[UIImage imageNamed:@"Triangle 1 Copy2"] forState:UIControlStateNormal];
         self.recordbtn.enabled = NO;
     }else{
-        [self.recordbtn setImage:[UIImage imageNamed:@"Triangle 1 Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.recordbtn setImage:[UIImage imageNamed:@"Triangle 1 Copy 3"] forState:UIControlStateNormal];
     }
     if (self.starclickCount == nil) {
         self.starclickCount = @"0";
-        [self.starbtn setImage:[UIImage imageNamed:@"Starred Icon Copy@3x.png"] forState:UIControlStateNormal];
+        [self.starbtn setImage:[UIImage imageNamed:@"Starred Icon Copy"] forState:UIControlStateNormal];
     }else{
         if ([self.starclickCount isEqualToString:@"0"]) {
-            [self.starbtn setImage:[UIImage imageNamed:@"Starred Icon Copy@3x.png"] forState:UIControlStateNormal];
+            [self.starbtn setImage:[UIImage imageNamed:@"Starred Icon Copy"] forState:UIControlStateNormal];
         }
         else if ([self.starclickCount isEqualToString:@"1"]) {
-            [self.starbtn setImage:[UIImage imageNamed:@"Starred@2x.png"] forState:UIControlStateNormal];
+            [self.starbtn setImage:[UIImage imageNamed:@"Starred"] forState:UIControlStateNormal];
         }
     }
     if (self.tagsArr == nil) {
@@ -420,15 +420,15 @@
         self.tag5.hidden = YES;
         self.tagbtn.enabled = YES;
         self.tagsArr = [[NSMutableArray alloc]init];
-        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+        [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
     }else{
         [self settagsLabel];
     }
     if (self.imgPath != nil) {
-        [self.photobtn setImage:[UIImage imageNamed:@"Camera@2x.png"] forState:UIControlStateNormal];
+        [self.photobtn setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
         self.photobtn.enabled = NO;
     }else{
-        [self.photobtn setImage:[UIImage imageNamed:@"Camera Copy@2x.png"] forState:UIControlStateNormal];
+        [self.photobtn setImage:[UIImage imageNamed:@"Camera Copy"] forState:UIControlStateNormal];
     }
     [self.recordbtn addTarget:self action:@selector(pushtoRecord) forControlEvents:UIControlEventTouchUpInside];
     [self.photobtn addTarget:self action:@selector(pushtoPhoto) forControlEvents:UIControlEventTouchUpInside];
@@ -445,11 +445,11 @@
 }
 -(void)star{
     if ([self.starclickCount isEqualToString:@"0"]) {
-        [self.starbtn setImage:[UIImage imageNamed:@"Starred@2x.png"] forState:UIControlStateNormal];
+        [self.starbtn setImage:[UIImage imageNamed:@"Starred"] forState:UIControlStateNormal];
         self.starclickCount = @"1";
     }
     else if ([self.starclickCount isEqualToString:@"1"]) {
-        [self.starbtn setImage:[UIImage imageNamed:@"Starred Icon Copy@3x.png"] forState:UIControlStateNormal];
+        [self.starbtn setImage:[UIImage imageNamed:@"Starred Icon Copy"] forState:UIControlStateNormal];
         self.starclickCount = @"0";
     }
 }
@@ -463,7 +463,7 @@
         if (self.tagsArr.count > 0) {
             [self settagsLabel];
         }else{
-            [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+            [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
             self.tagsLabel.hidden = YES;
         }
     }];
@@ -473,11 +473,11 @@
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
         [self.tagsArr addObject:tag.text];
         if (self.tagsArr.count > 0) {
-            [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added@3x.png"] forState:UIControlStateNormal];
+            [self.tagbtn setImage:[UIImage imageNamed:@"Tags Added"] forState:UIControlStateNormal];
             self.tagsLabel.hidden = NO;
             self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
         }else{
-            [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3@2x.png"] forState:UIControlStateNormal];
+            [self.tagbtn setImage:[UIImage imageNamed:@"Tags Icon Copy 3"] forState:UIControlStateNormal];
             self.tagsLabel.hidden = YES;
         }
         [self settagsLabel];
@@ -606,10 +606,10 @@
         [fm createFileAtPath:self.imagePath contents:data attributes:nil];
         self.imgPath = self.imagePath;
         if (self.imgPath != nil) {
-            [self.photobtn setImage:[UIImage imageNamed:@"Camera@2x.png"] forState:UIControlStateNormal];
+            [self.photobtn setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
             self.photobtn.enabled = NO;
         }else{
-            [self.photobtn setImage:[UIImage imageNamed:@"Camera Copy@2x.png"] forState:UIControlStateNormal];
+            [self.photobtn setImage:[UIImage imageNamed:@"Camera Copy"] forState:UIControlStateNormal];
         }
     }
 }
@@ -648,7 +648,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:NO];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Nav Bar"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     self.title = [self getTime];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];

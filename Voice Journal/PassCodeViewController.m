@@ -7,7 +7,7 @@
 //
 
 #import "PassCodeViewController.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 
 @interface PassCodeViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *passCode;
@@ -33,7 +33,7 @@
             if (success) {
                 //验证成功，主线程处理UI
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    ViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
+                    MainViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
                     UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:VC];
                     [self presentViewController:rootNavCon animated:YES completion:nil];
                 });
@@ -88,7 +88,7 @@
         self.img4.image = [UIImage imageNamed:@"Oval 133 Copy@2x.png"];
         if ([password isEqualToString:[userDefauts objectForKey:@"passcode"]]) {
             [tx resignFirstResponder];
-            ViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
+            MainViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
             UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:VC];
             [self presentViewController:rootNavCon animated:YES completion:nil];
         }else{

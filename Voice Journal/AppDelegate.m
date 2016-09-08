@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "PassCodeViewController.h"
 
 @interface AppDelegate ()
@@ -25,7 +25,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults boolForKey:@"firstLaunch"]) {
         [userDefaults setBool:YES forKey:@"firstLaunch"];
-        ViewController *detailViewController
+        MainViewController *detailViewController
         = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
         UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:detailViewController];
         self.window.rootViewController = rootNavCon;
@@ -39,7 +39,7 @@
             self.window.rootViewController = detailViewController;
             [userDefaults setObject:@"eighth_id" forKey:@"rootView"];
         }else{
-            ViewController *detailViewController
+            MainViewController *detailViewController
             = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
             UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:detailViewController];
             self.window.rootViewController = rootNavCon;
