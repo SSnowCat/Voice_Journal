@@ -19,7 +19,7 @@
 #import "DiaryViewController.h"
 #import "ImgUtil.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIGestureRecognizerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *tagIcon;
 @property (strong, nonatomic) IBOutlet UIImageView *tagImg1;
 @property (strong, nonatomic) IBOutlet UILabel *moreTag;
@@ -57,15 +57,14 @@
 @implementation ViewController
 - (IBAction)addNew:(id)sender {
     EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
-    EVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:EVC animated:YES completion:nil];
+    [self.navigationController pushViewController:EVC animated:YES];
 }
 - (IBAction)record:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *recordAction = [UIAlertAction actionWithTitle:@"New Record" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         RecordViewController *RVC = [self.storyboard instantiateViewControllerWithIdentifier:@"second_id"];
         RVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:RVC animated:YES completion:nil];
+        [self.navigationController pushViewController:RVC animated:YES];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
     [alert addAction:recordAction];
@@ -99,28 +98,24 @@
 }
 - (IBAction)timeline:(id)sender {
     TimeLineViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"forth_id"];
-    TVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:TVC animated:YES completion:nil];
+    [self.navigationController pushViewController:TVC animated:YES];
 }
 - (IBAction)photos:(id)sender {
     PhotosViewController *PVC = [self.storyboard instantiateViewControllerWithIdentifier:@"twelfth_id"];
-    PVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:PVC animated:YES completion:nil];
+    [self.navigationController pushViewController:PVC animated:YES];
 }
 - (IBAction)tags:(id)sender {
     TagsViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"thirteen_id"];
-    TVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:TVC animated:YES completion:nil];
+    [self.navigationController pushViewController:TVC animated:YES];
 }
 - (IBAction)star:(id)sender {
     StarViewController *STVC = [self.storyboard instantiateViewControllerWithIdentifier:@"seventh_id"];
-    STVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:STVC animated:YES completion:nil];
+    [self.navigationController pushViewController:STVC animated:YES];
 }
 - (IBAction)setting:(id)sender {
     SettingViewController *SVC = [self.storyboard instantiateViewControllerWithIdentifier:@"third_id"];
     SVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:SVC animated:YES completion:nil];
+    [self.navigationController pushViewController:SVC animated:YES];
 }
 -(void)LocalPhoto{
     self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -154,7 +149,7 @@
         EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
         EVC.imgPath = self.imagePath;
         EVC.imgFileName = self.fileName;
-        [self presentViewController:EVC animated:YES completion:nil];
+        [self.navigationController pushViewController:EVC animated:YES];
     }];
     [self getImgWithInfo:info];
 }
@@ -203,6 +198,30 @@
         }
     }];
     [datatask resume];
+}
+-(void)addGestureRecognizer:(UIView*)tapView {
+    //
+    NSArray *gestures = tapView.gestureRecognizers;
+    for (UIGestureRecognizer *gesture in gestures) {
+        [tapView removeGestureRecognizer:gesture];
+    }
+    //    //新建tap手势
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
+    //设置点击次数和点击手指数
+    tapGesture.delegate = self;
+    tapGesture.numberOfTapsRequired = 1; //点击次数
+    tapGesture.numberOfTouchesRequired = 1; //点击手指数
+    [tapView addGestureRecognizer:tapGesture];
+}
+-(void)tapView:(UITapGestureRecognizer*) recognizer{
+    if (recognizer.view.tag == 9999) {
+        DiaryViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sixth_id"];
+        DVC.setting = self.setting;
+        DVC.bigDocName = self.bigDocName;
+        DVC.smallDocName = self.smallDocName;
+        DVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.navigationController pushViewController:DVC animated:YES];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -417,6 +436,7 @@
     return week;
 }
 -(void)initUI{
+    [self addGestureRecognizer:self.textView];
     self.titleLabel.hidden = YES;
     self.tagImg.hidden = YES;
     self.tagImg1.hidden = YES;
@@ -445,7 +465,9 @@
     [self recentWork];
     [self getcount];
     [self showMemory];
+    [self.navigationController.navigationBar setHidden:YES];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];

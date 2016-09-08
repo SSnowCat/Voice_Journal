@@ -25,8 +25,7 @@
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     [userDefauts setBool:NO forKey:@"password"];
     SettingViewController *SVC = [self.storyboard instantiateViewControllerWithIdentifier:@"third_id"];
-    SVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:SVC animated:YES completion:nil];
+    [self.navigationController pushViewController:SVC animated:YES];
 
 }
 -(void)setUI{
@@ -91,7 +90,9 @@
     [self setUI];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

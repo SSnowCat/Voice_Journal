@@ -23,8 +23,7 @@
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     [userDefauts setBool:NO forKey:@"password"];
     SettingViewController *SVC = [self.storyboard instantiateViewControllerWithIdentifier:@"third_id"];
-    SVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:SVC animated:YES completion:nil];
+    [self.navigationController popToViewController:SVC animated:YES];
 }
 -(void)setUI{
     self.view.backgroundColor = [UIColor colorWithRed:144.0/255.0 green:200.0/255.0 blue:194.0/255.0 alpha:1.0];
@@ -69,7 +68,7 @@
         ConfirmViewController *CVC = [self.storyboard instantiateViewControllerWithIdentifier:@"tenth_id"];
         CVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         CVC.passcode = password;
-        [self presentViewController:CVC animated:YES completion:nil];
+        [self.navigationController pushViewController:CVC animated:YES];
     }
 }
 
@@ -78,7 +77,9 @@
     [self setUI];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

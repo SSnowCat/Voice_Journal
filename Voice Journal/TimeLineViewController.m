@@ -22,26 +22,10 @@
 @end
 
 @implementation TimeLineViewController
-- (IBAction)back:(id)sender {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rootView"] isEqualToString:@"first_id"]) {
-        UIViewController *rootVC = self;
-        while (rootVC.presentingViewController) {
-            rootVC = rootVC.presentingViewController;
-        }
-        [rootVC dismissViewControllerAnimated:YES completion:nil];
-    }
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rootView"] isEqualToString:@"eighth_id"]) {
-        UIViewController *rootVC = self;
-        while (rootVC.presentingViewController) {
-            rootVC = rootVC.presentingViewController;
-        }
-        [rootVC.presentedViewController dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-- (IBAction)addEdit:(id)sender {
+- (void)addEdit {
     EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
     EVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:EVC animated:YES completion:nil];
+    [self.navigationController pushViewController:EVC animated:YES];
 }
 -(void)initUI{
     self.record = [[Record alloc]init];
@@ -231,7 +215,7 @@
     DVC.bigDocName = bigDocName;
     DVC.smallDocName = smallDocName;
     DVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:DVC animated:YES completion:nil];
+    [self.navigationController pushViewController:DVC animated:YES];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -267,7 +251,19 @@
     // 从列表中删除
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.title = @"Timeline";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    
+    UIButton *addEdit = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 20)];
+    [addEdit setImage:[UIImage imageNamed:@"Add Icon Copy 2@2x.png"] forState:UIControlStateNormal];
+    [addEdit addTarget:self action:@selector(addEdit) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:addEdit];
+    self.navigationItem.rightBarButtonItem=barBtn1;
+}
 /*
 #pragma mark - Navigation
 

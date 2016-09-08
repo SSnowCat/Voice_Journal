@@ -27,7 +27,8 @@
         [userDefaults setBool:YES forKey:@"firstLaunch"];
         ViewController *detailViewController
         = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
-        self.window.rootViewController = detailViewController;
+        UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:detailViewController];
+        self.window.rootViewController = rootNavCon;
         [userDefaults setBool:NO forKey:@"password"];
         [userDefaults setObject:nil forKey:@"passcode"];
         [userDefaults setObject:@"first_id" forKey:@"rootView"];
@@ -40,7 +41,8 @@
         }else{
             ViewController *detailViewController
             = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
-            self.window.rootViewController = detailViewController;
+            UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:detailViewController];
+            self.window.rootViewController = rootNavCon;
             [userDefaults setObject:@"first_id" forKey:@"rootView"];
         }
     }

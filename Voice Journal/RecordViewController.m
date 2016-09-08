@@ -10,7 +10,7 @@
 #import "Record.h"
 #import "ViewController.h"
 #import "EditViewController.h"
-#import "ReviseViewController.h"
+
 
 BOOL toggle = NO;
 BOOL toggleForStop = NO;
@@ -68,7 +68,7 @@ BOOL toggleForStop = NO;
     NSFileManager *fm = [NSFileManager defaultManager];
     NSString *path = [NSString stringWithFormat:@"%@/%@.caf",[self.record getDoc],self.urlPath];
     [fm removeItemAtPath:path error:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)play:(id)sender {
     self.done.enabled = YES;
@@ -187,33 +187,15 @@ BOOL toggleForStop = NO;
         self.newurlPath = [NSString stringWithFormat:@"%@/%@",[self.record getDoc],self.fileName];
         [fm createFileAtPath:self.newurlPath contents:data attributes:nil];
         [fm removeItemAtPath:path error:nil];
-        if ([self.rootView isEqualToString:@"Revise"]) {
-            ReviseViewController *RVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifteen_id"];
-            RVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            RVC.recordPath = self.newurlPath;
-            RVC.imgPath = self.imgPath;
-            RVC.contentText = self.text;
-            RVC.tagsArr = self.tagsArr;
-            RVC.starclickCount = self.isStarred;
-            RVC.rootView = self.rootView;
-            RVC.setting = self.setting;
-            RVC.smallDocName = self.smallDocName;
-            RVC.bigDocName = self.bigDocName;
-            [self presentViewController:RVC animated:YES completion:nil];
-
-        }else{
-            EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
-            EVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            EVC.voicePath = self.newurlPath;
-            EVC.imgPath = self.imgPath;
-            EVC.recordFileName = self.fileName;
-            EVC.contentText = self.text;
-            EVC.imgFileName = self.imgfilename;
-            EVC.tagsArr = self.tagsArr;
-            EVC.starclickCount = self.isStarred;
-            [self presentViewController:EVC animated:YES completion:nil];
-
-        }
+        EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
+        EVC.voicePath = self.newurlPath;
+        EVC.imgPath = self.imgPath;
+        EVC.recordFileName = self.fileName;
+        EVC.contentText = self.text;
+        EVC.imgFileName = self.imgfilename;
+        EVC.tagsArr = self.tagsArr;
+        EVC.starclickCount = self.isStarred;
+        [self.navigationController pushViewController:EVC animated:YES];
     }];
     saveAction.enabled = NO;
     [alert addAction:deleteAction];
@@ -246,6 +228,10 @@ BOOL toggleForStop = NO;
     self.record = [[Record alloc]init];
     NSString *time = [self.record getTime];
     self.timeLabel.text = time;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:YES];
+    self.title = @"Menu";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

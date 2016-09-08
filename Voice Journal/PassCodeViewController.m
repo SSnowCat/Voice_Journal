@@ -34,7 +34,8 @@
                 //验证成功，主线程处理UI
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     ViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
-                    [self presentViewController:VC animated:YES completion:nil];
+                    UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:VC];
+                    [self presentViewController:rootNavCon animated:YES completion:nil];
                 });
             }
         }];
@@ -88,7 +89,8 @@
         if ([password isEqualToString:[userDefauts objectForKey:@"passcode"]]) {
             [tx resignFirstResponder];
             ViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
-            [self presentViewController:VC animated:YES completion:nil];
+            UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:VC];
+            [self presentViewController:rootNavCon animated:YES completion:nil];
         }else{
             [tx setText:@""];
             self.img1.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];

@@ -21,7 +21,7 @@
 
 @implementation OldPasscodeViewController
 - (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)setUI{
     self.view.backgroundColor = [UIColor colorWithRed:144.0/255.0 green:200.0/255.0 blue:194.0/255.0 alpha:1.0];
@@ -66,8 +66,7 @@
         self.img4.image = [UIImage imageNamed:@"Oval 133 Copy@2x.png"];
         if ([password isEqualToString:[userDefauts objectForKey:@"passcode"]]) {
             NewPassCodeViewController *NPCVC = [self.storyboard instantiateViewControllerWithIdentifier:@"nineth_id"];
-            NPCVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentViewController:NPCVC animated:YES completion:nil];
+            [self.navigationController pushViewController:NPCVC animated:YES];
         }else{
             [tx setText:@""];
             self.img1.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
@@ -83,7 +82,9 @@
     [self setUI];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

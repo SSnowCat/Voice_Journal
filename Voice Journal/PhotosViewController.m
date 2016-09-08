@@ -26,23 +26,7 @@
 
 static NSString *cid = @"cid";
 @implementation PhotosViewController
-- (IBAction)backtoMenu:(id)sender {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rootView"] isEqualToString:@"first_id"]) {
-        UIViewController *rootVC = self;
-        while (rootVC.presentingViewController) {
-            rootVC = rootVC.presentingViewController;
-        }
-        [rootVC dismissViewControllerAnimated:YES completion:nil];
-    }
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rootView"] isEqualToString:@"eighth_id"]) {
-        UIViewController *rootVC = self;
-        while (rootVC.presentingViewController) {
-            rootVC = rootVC.presentingViewController;
-        }
-        [rootVC.presentedViewController dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-- (IBAction)camera:(id)sender {
+- (void)camera {
     self.fileName = [NSString stringWithFormat:@"%@.png",[self.record getTime]];
     self.imagePath = [NSString stringWithFormat:@"%@/%@",[self.record getDoc],self.fileName];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -260,7 +244,7 @@ static NSString *cid = @"cid";
         EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
         EVC.imgPath = self.imagePath;
         EVC.imgFileName = self.fileName;
-        [self presentViewController:EVC animated:YES completion:nil];
+        [self.navigationController pushViewController:EVC animated:YES];
     }];
     [self getImgWithInfo:info];
 }
@@ -310,12 +294,24 @@ static NSString *cid = @"cid";
     DVC.bigDocName = bigDocName;
     DVC.smallDocName = smallDocName;
     DVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:DVC animated:YES completion:nil];
+    [self.navigationController pushViewController:DVC animated:YES];
 }
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.title = @"Photos";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    
+    UIButton *doneBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 30)];
+    [doneBtn setImage:[UIImage imageNamed:@"Camera Copy 2@3x.png"] forState:UIControlStateNormal];
+    [doneBtn addTarget:self action:@selector(camera) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:doneBtn];
+    self.navigationItem.rightBarButtonItem=barBtn1;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

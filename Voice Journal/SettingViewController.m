@@ -74,8 +74,7 @@
             }];
             UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 NewPassCodeViewController *NPCVC = [self.storyboard instantiateViewControllerWithIdentifier:@"nineth_id"];
-                NPCVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                [self presentViewController:NPCVC animated:YES completion:nil];
+                [self.navigationController pushViewController:NPCVC animated:YES];
             }];
             [alert addAction:cancel];
             [alert addAction:confirm];
@@ -105,22 +104,6 @@
         [userDefauts setBool:NO forKey:@"touchID"];
     }
 }
-- (IBAction)back:(id)sender {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rootView"] isEqualToString:@"first_id"]) {
-        UIViewController *rootVC = self;
-        while (rootVC.presentingViewController) {
-            rootVC = rootVC.presentingViewController;
-        }
-        [rootVC dismissViewControllerAnimated:YES completion:nil];
-    }
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"rootView"] isEqualToString:@"eighth_id"]) {
-        UIViewController *rootVC = self;
-        while (rootVC.presentingViewController) {
-            rootVC = rootVC.presentingViewController;
-        }
-        [rootVC.presentedViewController dismissViewControllerAnimated:YES completion:nil];
-    }
-}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)indexPath.section,(long)indexPath.row];
@@ -134,16 +117,14 @@
             UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [userDefauts setBool:YES forKey:@"password"];
                 NewPassCodeViewController *NPCVC = [self.storyboard instantiateViewControllerWithIdentifier:@"nineth_id"];
-                NPCVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                [self presentViewController:NPCVC animated:YES completion:nil];
+                [self.navigationController pushViewController:NPCVC animated:YES];
             }];
             [alert addAction:cancel];
             [alert addAction:confirm];
             [self presentViewController:alert animated:YES completion:nil];
         }else{
             OldPasscodeViewController *OPVC = [self.storyboard instantiateViewControllerWithIdentifier:@"eleventh_id"];
-            OPVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentViewController:OPVC animated:YES completion:nil];
+            [self.navigationController pushViewController:OPVC animated:YES];
         }
     }
 }
@@ -156,7 +137,13 @@
     //self.tableView.table
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.title = @"Setting";
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

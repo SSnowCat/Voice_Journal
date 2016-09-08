@@ -14,7 +14,6 @@
 
 #define MAX_STARWORDS_LENGTH 5
 @interface EditViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *editTime;
 @property (strong, nonatomic) IBOutlet UITextView *editView;
 @property (strong, nonatomic) IBOutlet UIImageView *lineView;
 @property (strong, nonatomic) IBOutlet UIImageView *img1;
@@ -110,14 +109,6 @@
         self.tagsLabel.text = [NSString stringWithFormat:@"%lu",self.tagsArr.count];
     }
 }
-- (IBAction)backtoTimeline:(id)sender {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    [fm removeItemAtPath:self.imgPath error:nil];
-    [fm removeItemAtPath:self.voicePath error:nil];
-    TimeLineViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"forth_id"];
-    TVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:TVC animated:YES completion:nil];
-}
 -(NSArray *)getDocList{
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray *fileList = [fm contentsOfDirectoryAtPath:[self.record getDoc] error:nil];
@@ -138,7 +129,7 @@
 -(void)saveData{
     NSFileManager *fm = [NSFileManager defaultManager];
     NSString *text = self.editView.text;
-    NSString *bigDocName = [self.editTime.text substringToIndex:9];
+    NSString *bigDocName = [self.title substringToIndex:9];
     NSString *time = [self time];
     NSRange range = NSMakeRange(2, 6);
     NSString *subtime = [time substringWithRange:range];
@@ -152,7 +143,7 @@
         [self.record createDirWithName:bigDocName];
     }
     self.bigDocPath = [NSString stringWithFormat:@"%@/%@",[self.record getDoc],bigDocName];
-    NSString *smallDocName = [NSString stringWithFormat:@"%@ %@",[self.editTime.text substringFromIndex:10],time];
+    NSString *smallDocName = [NSString stringWithFormat:@"%@ %@",[self.title substringFromIndex:10],time];
     NSString *path = [self.bigDocPath stringByAppendingPathComponent:smallDocName];
     [fm createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
     if (self.voicePath != nil) {
@@ -168,7 +159,7 @@
         [fm createFileAtPath:self.newimgpath contents:imgdata attributes:nil];
     }
     if (text.length != 0) {
-        self.textpath = [NSString stringWithFormat:@"%@/%@.txt",path,self.editTime.text];
+        self.textpath = [NSString stringWithFormat:@"%@/%@.txt",path,self.title];
         [fm createFileAtPath:self.textpath contents:nil attributes:nil];
         [text writeToFile:self.textpath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
@@ -189,7 +180,7 @@
     if (self.tagsPath == nil) {
         self.tagsPath = @" ";
     }
-    NSArray *setting = @[self.newimgpath,self.newrecordpath,self.textpath,self.starclickCount,self.editTime.text,subtime,self.tagsPath];
+    NSArray *setting = @[self.newimgpath,self.newrecordpath,self.textpath,self.starclickCount,self.title,subtime,self.tagsPath];
     [fm createFileAtPath:[NSString stringWithFormat:@"%@/setting.txt",path] contents:nil attributes:nil];
     [setting writeToFile:[NSString stringWithFormat:@"%@/setting.txt",path] atomically:nil];
 }
@@ -198,12 +189,14 @@
     [fm removeItemAtPath:self.imgPath error:nil];
     [fm removeItemAtPath:self.voicePath error:nil];
 }
-- (IBAction)done:(id)sender {
+- (void)done{
     [self saveData];
     [self delFile];
-    TimeLineViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"forth_id"];
-    TVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:TVC animated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+-(void)backMenu{
+    [self delFile];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(NSString *)getTime{
     NSDate * date = [NSDate date];
@@ -228,10 +221,10 @@
 - (void)keyboardDidShow:(NSNotification *)notification{
     NSDictionary *userInfo = [notification userInfo];
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    self.editView.frame = CGRectMake(0, 105, self.view.frame.size.width, self.view.frame.size.height-keyboardSize.height-100);
+    self.editView.frame = CGRectMake(0, 45, self.view.frame.size.width, self.view.frame.size.height-keyboardSize.height-40);
 }
 -(void)keyboardDidHide{
-    self.editView.frame = CGRectMake(0, 105, self.view.frame.size.width, self.view.frame.size.height-10);
+    self.editView.frame = CGRectMake(0, 45, self.view.frame.size.width, self.view.frame.size.height-40);
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.editView resignFirstResponder];
@@ -376,7 +369,6 @@
     self.record = [[Record alloc]init];
     self.haveDoc = 0;
     self.picker = [[UIImagePickerController alloc]init];
-    self.editTime.text = [self getTime];
     [self.editView becomeFirstResponder];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide) name:UIKeyboardWillHideNotification object:nil];
@@ -559,7 +551,7 @@
 -(void)pushtoPhoto{
     //图片保存的路径
     
-    self.imgFileName = [NSString stringWithFormat:@"%@.png",self.editTime.text];
+    self.imgFileName = [NSString stringWithFormat:@"%@.png",self.title];
     self.imagePath = [NSString stringWithFormat:@"%@/%@",[self.record getDoc],self.imgFileName];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -571,7 +563,7 @@
         self.picker.delegate = self;
         self.picker.allowsEditing = YES;
         // 展示选取照片控制器
-        [self presentViewController:self.picker animated:YES completion:^{}];
+        [self presentViewController:self.picker animated:YES completion:nil];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Choose from Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self LocalPhoto];
@@ -641,7 +633,7 @@
         RVC.imgfilename = self.imgFileName;
         RVC.tagsArr = self.tagsArr;
         RVC.isStarred = self.starclickCount;
-        [self presentViewController:RVC animated:YES completion:nil];
+        [self.navigationController pushViewController:RVC animated:YES];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
     [alert addAction:recordAction];
@@ -654,7 +646,21 @@
     [self initUI];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.title = [self getTime];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    
+    UIButton *doneBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 20)];
+    [doneBtn setTintColor:[UIColor whiteColor]];
+    [doneBtn setTitle:@"Done" forState:UIControlStateNormal];
+    doneBtn.titleLabel.font = [UIFont systemFontOfSize:17.0f];
+    [doneBtn addTarget:self action:@selector(done) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:doneBtn];
+    self.navigationItem.rightBarButtonItem=barBtn1;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

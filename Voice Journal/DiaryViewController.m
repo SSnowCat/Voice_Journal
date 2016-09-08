@@ -9,10 +9,8 @@
 #import "DiaryViewController.h"
 #import "TimeLineViewController.h"
 #import "EditViewController.h"
-#import "ReviseViewController.h"
 
 @interface DiaryViewController ()
-@property (strong, nonatomic) IBOutlet UIButton *edit;
 @property (strong, nonatomic) IBOutlet UILabel *tag5;
 @property (strong, nonatomic) IBOutlet UIImageView *img5;
 @property (strong, nonatomic) IBOutlet UILabel *tag4;
@@ -25,7 +23,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *tagIcon;
 @property (strong, nonatomic) IBOutlet UILabel *week;
 @property (strong, nonatomic) IBOutlet UIImageView *imgView;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UILabel *time;
 @property (strong, nonatomic) IBOutlet UILabel *tag1;
@@ -53,22 +50,9 @@
     }
     [self.audioPlayer play];
 }
-- (IBAction)backToTimeline:(id)sender {
-    TimeLineViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"forth_id"];
-    TVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:TVC animated:YES completion:nil];
-}
 
-- (IBAction)edit:(id)sender {
-    ReviseViewController *RVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifteen_id"];
-    RVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    RVC.setting = self.setting;
-    RVC.bigDocName = self.bigDocName;
-    RVC.smallDocName = self.smallDocName;
-    [self presentViewController:RVC animated:YES completion:nil];
-}
 -(NSString *)getWeek{
-    NSString* string = self.timeLabel.text;
+    NSString* string = self.title;
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     [inputFormatter setDateFormat:@"yyyy年 MM月 dd日"];
@@ -86,11 +70,10 @@
 }
 
 -(void)initUI{
-    [self.edit setTitle:@"Edit" forState:UIControlStateNormal];
     self.textView.editable = NO;
     if ([[self.setting objectAtIndex:0] isEqualToString:@" "]) {
         self.imgView.hidden = YES;
-        self.textView.frame = CGRectMake(10,70, self.view.frame.size.width-20, self.view.frame.size.height - 118);
+        self.textView.frame = CGRectMake(10,0, self.view.frame.size.width-20, self.view.frame.size.height - 118);
     }else{
         NSData *data = [NSData dataWithContentsOfFile:[self.setting objectAtIndex:0]];
         self.imgView.image = [UIImage imageWithData:data];
@@ -185,7 +168,6 @@
         }
 
     }
-    self.timeLabel.text = [self.setting objectAtIndex:4];
     self.time.text = [self.setting objectAtIndex:5];
     self.week.text = [self getWeek];
 }
@@ -194,7 +176,13 @@
     [self initUI];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.title = [self.setting objectAtIndex:4];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -46,7 +46,6 @@
 		D85CA8EB1CBE055D00B5525F /* Settings Clicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D85CA8E91CBE055D00B5525F /* Settings Clicked@2x.png */; };
 		D85CA8EC1CBE055D00B5525F /* Settings Clicked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D85CA8EA1CBE055D00B5525F /* Settings Clicked@3x.png */; };
 		D8693A8A1CCA3F8100A9390B /* DiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8693A891CCA3F8100A9390B /* DiaryViewController.m */; };
-		D86A50FE1CD8B4CE00F4A692 /* ReviseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D86A50FD1CD8B4CE00F4A692 /* ReviseViewController.m */; };
 		D86D4B361CCE12CC0038BA37 /* Tags Icon Copy 4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86D4B341CCE12CC0038BA37 /* Tags Icon Copy 4@2x.png */; };
 		D86D4B371CCE12CC0038BA37 /* Tags Icon Copy 4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86D4B351CCE12CC0038BA37 /* Tags Icon Copy 4@3x.png */; };
 		D88C656F1CD234FD00F159F0 /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88C656E1CD234FD00F159F0 /* TagsViewController.m */; };
@@ -197,8 +196,6 @@
 		D85CA8EA1CBE055D00B5525F /* Settings Clicked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings Clicked@3x.png"; sourceTree = "<group>"; };
 		D8693A881CCA3F8100A9390B /* DiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryViewController.h; sourceTree = "<group>"; };
 		D8693A891CCA3F8100A9390B /* DiaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryViewController.m; sourceTree = "<group>"; };
-		D86A50FC1CD8B4CE00F4A692 /* ReviseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviseViewController.h; sourceTree = "<group>"; };
-		D86A50FD1CD8B4CE00F4A692 /* ReviseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviseViewController.m; sourceTree = "<group>"; };
 		D86D4B341CCE12CC0038BA37 /* Tags Icon Copy 4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tags Icon Copy 4@2x.png"; sourceTree = "<group>"; };
 		D86D4B351CCE12CC0038BA37 /* Tags Icon Copy 4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tags Icon Copy 4@3x.png"; sourceTree = "<group>"; };
 		D88C656D1CD234FD00F159F0 /* TagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
@@ -509,8 +506,6 @@
 				D8575AE21CD05F86002DE1C7 /* PhotosViewController.m */,
 				D8D9EAE01CC3BBBB000A19A0 /* EditViewController.h */,
 				D8D9EAE11CC3BBBB000A19A0 /* EditViewController.m */,
-				D86A50FC1CD8B4CE00F4A692 /* ReviseViewController.h */,
-				D86A50FD1CD8B4CE00F4A692 /* ReviseViewController.m */,
 				D8F11D181CC3AEFA00B95B16 /* TimeLineViewController.h */,
 				D8F11D191CC3AEFA00B95B16 /* TimeLineViewController.m */,
 				D84EC8BE1CB37C57001E1813 /* RecordViewController.h */,
@@ -838,7 +833,6 @@
 				D8FE8C6D1C9AB9DE000A7530 /* AppDelegate.m in Sources */,
 				D83173F11CCC8C610014A844 /* PassCodeViewController.m in Sources */,
 				D8002E491CD3326300A1819D /* SecondTagsViewController.m in Sources */,
-				D86A50FE1CD8B4CE00F4A692 /* ReviseViewController.m in Sources */,
 				D83173F61CCC92880014A844 /* NewPassCodeViewController.m in Sources */,
 				D8575AE31CD05F86002DE1C7 /* PhotosViewController.m in Sources */,
 				D8D9EAE21CC3BBBB000A19A0 /* EditViewController.m in Sources */,

@@ -24,15 +24,9 @@
 @end
 
 @implementation SecondTagsViewController
-- (IBAction)backToTags:(id)sender {
-    TagsViewController *TVC = [self.storyboard instantiateViewControllerWithIdentifier:@"thirteen_id"];
-    TVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:TVC animated:YES completion:nil];
-}
-- (IBAction)add:(id)sender {
+- (void)add {
     EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
-    EVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:EVC animated:YES completion:nil];
+    [self.navigationController pushViewController:EVC animated:YES];
 }
 -(void)initUI{
     self.record = [[Record alloc]init];
@@ -205,8 +199,7 @@
     DVC.setting = setting;
     DVC.bigDocName = bigDocName;
     DVC.smallDocName = smallDocName;
-    DVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:DVC animated:YES completion:nil];
+    [self.navigationController pushViewController:DVC animated:YES];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -247,6 +240,19 @@
     [super viewDidLoad];
     [self initUI];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setHidden:NO];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle 14.png"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    self.title = self.tag;
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    
+    UIButton *addEdit = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 20)];
+    [addEdit setImage:[UIImage imageNamed:@"Add Icon Copy 2@2x.png"] forState:UIControlStateNormal];
+    [addEdit addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:addEdit];
+    self.navigationItem.rightBarButtonItem=barBtn1;
 }
 
 - (void)didReceiveMemoryWarning {
