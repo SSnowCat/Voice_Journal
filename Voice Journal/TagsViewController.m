@@ -109,7 +109,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],NSFontAttributeName,[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
     
     UIButton *addEdit = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 20)];
-    [addEdit setImage:[UIImage imageNamed:@"Add Icon Copy 2@2x.png"] forState:UIControlStateNormal];
+    [addEdit setImage:[UIImage imageNamed:@"Top Add Icon"] forState:UIControlStateNormal];
     [addEdit addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:addEdit];
     self.navigationItem.rightBarButtonItem=barBtn1;

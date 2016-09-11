@@ -73,7 +73,7 @@ BOOL toggleForStop = NO;
 - (IBAction)play:(id)sender {
     self.done.enabled = YES;
     self.done.alpha = 1.0;
-    [self.play setImage:[UIImage imageNamed:@"Group@2x.png"] forState:UIControlStateNormal];
+    [self.play setImage:[UIImage imageNamed:@"Play"] forState:UIControlStateNormal];
     NSString * encodingString = [self.urlPath stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *path = [NSString stringWithFormat:@"%@/%@.caf",[self.record getDoc],encodingString];
     if (!_audioPlayer) {
@@ -168,7 +168,7 @@ BOOL toggleForStop = NO;
         
         [alercontroller addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [fm removeItemAtPath:path error:nil];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popViewControllerAnimated:YES];
         }]];
         
         [alercontroller addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -231,7 +231,7 @@ BOOL toggleForStop = NO;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:YES];
-    self.title = @"Menu";
+    self.title = @"Record";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

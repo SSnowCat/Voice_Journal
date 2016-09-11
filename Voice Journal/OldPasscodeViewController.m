@@ -25,10 +25,10 @@
 }
 -(void)setUI{
     self.view.backgroundColor = [UIColor colorWithRed:144.0/255.0 green:200.0/255.0 blue:194.0/255.0 alpha:1.0];
-    self.img1.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-    self.img2.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-    self.img3.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-    self.img4.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
+    self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];
+    self.img2.image = [UIImage imageNamed:@"PasscodeCircle"];
+    self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
+    self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     self.textView.hidden = YES;
     self.textView.keyboardType = UIKeyboardTypeNumberPad;
     [self.textView addTarget:self action:@selector(txchange:) forControlEvents:UIControlEventEditingChanged];
@@ -41,38 +41,42 @@
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     NSString *password = tx.text;
     if (password.length == 0) {
-        self.img1.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-        self.img2.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-        self.img3.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-        self.img4.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
+        self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];
+        self.img2.image = [UIImage imageNamed:@"PasscodeCircle"];
+        self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
+        self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     }
     if (password.length == 1) {
-        self.img1.image = [UIImage imageNamed:@"Oval 133 Copy@2x.png"];
-        self.img2.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-        self.img3.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-        self.img4.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
+        self.img1.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
+        self.img2.image = [UIImage imageNamed:@"PasscodeCircle"];
+        self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
+        self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     }
     if (password.length == 2) {
-        self.img2.image = [UIImage imageNamed:@"Oval 133 Copy@2x.png"];
-        self.img3.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-        self.img4.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
+        self.img2.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
+        self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
+        self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     }
     if (password.length == 3) {
-        self.img3.image = [UIImage imageNamed:@"Oval 133 Copy@2x.png"];
-        self.img4.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
+        self.img3.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
+        self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     }
     if (password.length == 4)
     {
-        self.img4.image = [UIImage imageNamed:@"Oval 133 Copy@2x.png"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.img4.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
+        });
         if ([password isEqualToString:[userDefauts objectForKey:@"passcode"]]) {
             NewPassCodeViewController *NPCVC = [self.storyboard instantiateViewControllerWithIdentifier:@"nineth_id"];
             [self.navigationController pushViewController:NPCVC animated:YES];
         }else{
             [tx setText:@""];
-            self.img1.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-            self.img2.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-            self.img3.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
-            self.img4.image = [UIImage imageNamed:@"Oval 133 Copy 3@2x.png"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];
+                self.img2.image = [UIImage imageNamed:@"PasscodeCircle"];
+                self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
+                self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
+            });
             self.warnLabel.text = @"密码错误";
         }
     }

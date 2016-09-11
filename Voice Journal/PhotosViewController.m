@@ -307,7 +307,7 @@ static NSString *cid = @"cid";
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f], NSFontAttributeName,[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
     
     UIButton *doneBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 46, 30)];
-    [doneBtn setImage:[UIImage imageNamed:@"Camera Copy 2@3x.png"] forState:UIControlStateNormal];
+    [doneBtn setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
     [doneBtn addTarget:self action:@selector(camera) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:doneBtn];
     self.navigationItem.rightBarButtonItem=barBtn1;

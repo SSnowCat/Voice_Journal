@@ -14,6 +14,7 @@
 @interface SettingViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *dataSource;
+@property (strong, nonatomic) UISwitch *select;
 @end
 
 @implementation SettingViewController
@@ -42,16 +43,16 @@
     if (indexPath.row == 0) {
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, cell.contentView.frame.size.height)];
         [cell.contentView addSubview:label];
-        UISwitch *select = [[UISwitch alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-60, 5, 20, cell.contentView.frame.size.height)];
-        [select addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
-        select.tag = indexPath.section*10 + indexPath.row;
+        self.select = [[UISwitch alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-60, 5, 20, cell.contentView.frame.size.height)];
+        [self.select addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+        self.select.tag = indexPath.section*10 + indexPath.row;
         if ([[values objectAtIndex:row] isEqualToString:@"Passcode"]) {
-            select.on = [userDefault boolForKey:@"password"];
+            self.select.on = [userDefault boolForKey:@"password"];
         }
         if ([[values objectAtIndex:row] isEqualToString:@"Touch ID"]) {
-            select.on = [userDefault boolForKey:@"touchID"];
+            self.select.on = [userDefault boolForKey:@"touchID"];
         }
-        [cell.contentView addSubview:select];
+        [cell.contentView addSubview:self.select];
         label.text = [values objectAtIndex:row];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -109,6 +110,8 @@
     NSString *str = [NSString stringWithFormat:@"%ld/%ld",(long)indexPath.section,(long)indexPath.row];
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     if ([str isEqualToString:@"0/1"]) {
+        NSLog(@"%@",str);
+        NSLog(@"%@",[userDefauts objectForKey:@"passcode"]);
         if ([userDefauts objectForKey:@"passcode"] == nil) {
             UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"创建密码" message:@"是否先创建密码" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -123,8 +126,17 @@
             [alert addAction:confirm];
             [self presentViewController:alert animated:YES completion:nil];
         }else{
-            OldPasscodeViewController *OPVC = [self.storyboard instantiateViewControllerWithIdentifier:@"eleventh_id"];
-            [self.navigationController pushViewController:OPVC animated:YES];
+            if ([userDefauts boolForKey:@"password"] == NO){
+                UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"打开密码" message:@"请确认是否打开密码验证" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    nil;
+                }];
+                [alert addAction:confirm];
+                [self presentViewController:alert animated:YES completion:nil];
+            }else{
+                OldPasscodeViewController *OPVC = [self.storyboard instantiateViewControllerWithIdentifier:@"eleventh_id"];
+                [self.navigationController pushViewController:OPVC animated:YES];
+            }
         }
     }
 }

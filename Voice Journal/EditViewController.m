@@ -425,7 +425,7 @@
         [self settagsLabel];
     }
     if (self.imgPath != nil) {
-        [self.photobtn setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+        [self.photobtn setImage:[UIImage imageNamed:@"ColoredCamera"] forState:UIControlStateNormal];
         self.photobtn.enabled = NO;
     }else{
         [self.photobtn setImage:[UIImage imageNamed:@"Camera Copy"] forState:UIControlStateNormal];
@@ -606,7 +606,7 @@
         [fm createFileAtPath:self.imagePath contents:data attributes:nil];
         self.imgPath = self.imagePath;
         if (self.imgPath != nil) {
-            [self.photobtn setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+            [self.photobtn setImage:[UIImage imageNamed:@"ColoredCamera"] forState:UIControlStateNormal];
             self.photobtn.enabled = NO;
         }else{
             [self.photobtn setImage:[UIImage imageNamed:@"Camera Copy"] forState:UIControlStateNormal];
@@ -660,6 +660,9 @@
     [doneBtn addTarget:self action:@selector(done) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barBtn1=[[UIBarButtonItem alloc]initWithCustomView:doneBtn];
     self.navigationItem.rightBarButtonItem=barBtn1;
+}
+-(void)back{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
