@@ -12,7 +12,8 @@
 #import "EditViewController.h"
 #import "DiaryViewController.h"
 #import "ImgUtil.h"
-
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)   //屏幕物理宽度
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height) //屏幕物理高度
 @interface PhotosViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableDictionary *dataSource;
@@ -97,7 +98,7 @@ static NSString *cid = @"cid";
     self.record = [[Record alloc]init];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-    flowLayout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
+    flowLayout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 30);
     [self.collectionView setCollectionViewLayout:flowLayout];
     
     self.collectionView.delegate = self;
@@ -154,12 +155,12 @@ static NSString *cid = @"cid";
     NSArray *values = [self.dataSource objectForKey:[keys objectAtIndex:indexPath.section]];
     if (values.count%2 != 0) {
         if (indexPath.row == values.count - 1) {
-            return CGSizeMake(self.view.frame.size.width, 200);
+            return CGSizeMake(SCREEN_WIDTH, 200);
         }else{
-            return CGSizeMake(self.view.frame.size.width/2, 200);
+            return CGSizeMake(SCREEN_WIDTH/2, 200);
         }
     }else{
-        return CGSizeMake(self.view.frame.size.width/2, 200);
+        return CGSizeMake(SCREEN_WIDTH/2, 200);
     }
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -259,7 +260,7 @@ static NSString *cid = @"cid";
 }
 - (UICollectionViewFlowLayout *) flowLayout{
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 20.0f);  //设置head大小
+    flowLayout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 20.0f);  //设置head大小
     return flowLayout;
 }
 - (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -272,7 +273,7 @@ static NSString *cid = @"cid";
         reusableview = headerView;
     }
     reusableview.backgroundColor = [UIColor blackColor];
-    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.4, 5, 100, 20)];
+    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50, 5, 100, 20)];
     headerLabel.backgroundColor = [UIColor blackColor];
     headerLabel.text = key;
     headerLabel.textAlignment = NSTextAlignmentCenter;

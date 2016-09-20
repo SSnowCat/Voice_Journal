@@ -11,7 +11,8 @@
 #import "MainViewController.h"
 #import "Record.h"
 #import "DiaryViewController.h"
-
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)   //屏幕物理宽度
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height) //屏幕物理高度
 @interface StarViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UITableViewCell *textCell;
@@ -168,15 +169,22 @@
     return cell;
     return nil;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    //这个方法用来告诉表格第section分组的名称
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSArray *keys = [self.dataSource allKeys];
     NSString *key = [keys objectAtIndex:section];
-    UIView *customView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 20)];
+    return key;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    //这个方法用来告诉表格第section分组的名称
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    UIView *customView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
     customView.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:1.0];
-    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 5, 100, 20)];
+    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50, 5, 100, 20)];
     headerLabel.backgroundColor = [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:1.0];
-    headerLabel.text = key;
+    headerLabel.text = sectionTitle;
     headerLabel.textAlignment = NSTextAlignmentCenter;
     headerLabel.textColor = [UIColor colorWithRed:143.0/255.0 green:142.0/255.0 blue:148.0/255.0 alpha:1.0];
     headerLabel.font = [UIFont fontWithName:@"Arial-bold" size:13];
