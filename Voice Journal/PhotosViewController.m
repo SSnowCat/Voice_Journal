@@ -100,11 +100,10 @@ static NSString *cid = @"cid";
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 30);
     [self.collectionView setCollectionViewLayout:flowLayout];
-    
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:cid];
-    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];//注册header的view
     [self getSectionAndRow];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
                                                initWithTarget:self
@@ -241,7 +240,7 @@ static NSString *cid = @"cid";
 }
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     //关闭相册界面
-    [self dismissViewControllerAnimated:YES completion:^{
+    [picker dismissViewControllerAnimated:YES completion:^{
         EditViewController *EVC = [self.storyboard instantiateViewControllerWithIdentifier:@"fifth_id"];
         EVC.imgPath = self.imagePath;
         EVC.imgFileName = self.fileName;

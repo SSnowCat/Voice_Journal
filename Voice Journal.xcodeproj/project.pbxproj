@@ -31,6 +31,10 @@
 		D8D7F9491CA924870035F794 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D7F9481CA924870035F794 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D8D9EAE21CC3BBBB000A19A0 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D9EAE11CC3BBBB000A19A0 /* EditViewController.m */; };
 		D8DA6B5F1C9FC9B100ACEE70 /* Memory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DA6B5E1C9FC9B000ACEE70 /* Memory.m */; };
+		D8ED52C91E4C446E0038111D /* SwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8ED52C71E4C446E0038111D /* SwitchTableViewCell.m */; };
+		D8ED52CA1E4C446E0038111D /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8ED52C81E4C446E0038111D /* SwitchTableViewCell.xib */; };
+		D8ED52CE1E4C47310038111D /* NoSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8ED52CC1E4C47310038111D /* NoSwitchTableViewCell.m */; };
+		D8ED52CF1E4C47310038111D /* NoSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8ED52CD1E4C47310038111D /* NoSwitchTableViewCell.xib */; };
 		D8F11D1A1CC3AEFA00B95B16 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F11D191CC3AEFA00B95B16 /* TimeLineViewController.m */; };
 		D8FE8C6A1C9AB9DE000A7530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FE8C691C9AB9DE000A7530 /* main.m */; };
 		D8FE8C6D1C9AB9DE000A7530 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FE8C6C1C9AB9DE000A7530 /* AppDelegate.m */; };
@@ -100,6 +104,12 @@
 		D8D9EAE11CC3BBBB000A19A0 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		D8DA6B5D1C9FC9B000ACEE70 /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory.h; sourceTree = "<group>"; };
 		D8DA6B5E1C9FC9B000ACEE70 /* Memory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Memory.m; sourceTree = "<group>"; };
+		D8ED52C61E4C446E0038111D /* SwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchTableViewCell.h; sourceTree = "<group>"; };
+		D8ED52C71E4C446E0038111D /* SwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchTableViewCell.m; sourceTree = "<group>"; };
+		D8ED52C81E4C446E0038111D /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		D8ED52CB1E4C47310038111D /* NoSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoSwitchTableViewCell.h; sourceTree = "<group>"; };
+		D8ED52CC1E4C47310038111D /* NoSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoSwitchTableViewCell.m; sourceTree = "<group>"; };
+		D8ED52CD1E4C47310038111D /* NoSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		D8EEE00F1CBB610A0083F48E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		D8EEE0101CBB610A0083F48E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D8F11D181CC3AEFA00B95B16 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
@@ -278,6 +288,12 @@
 			children = (
 				D8A6AB661CC8CD4F00F5516B /* TextTableViewCell.h */,
 				D8A6AB671CC8CD4F00F5516B /* TextTableViewCell.m */,
+				D8ED52C61E4C446E0038111D /* SwitchTableViewCell.h */,
+				D8ED52C71E4C446E0038111D /* SwitchTableViewCell.m */,
+				D8ED52C81E4C446E0038111D /* SwitchTableViewCell.xib */,
+				D8ED52CB1E4C47310038111D /* NoSwitchTableViewCell.h */,
+				D8ED52CC1E4C47310038111D /* NoSwitchTableViewCell.m */,
+				D8ED52CD1E4C47310038111D /* NoSwitchTableViewCell.xib */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -490,8 +506,10 @@
 				D8A6AB601CC876DF00F5516B /* TextView.xib in Resources */,
 				D8FE8C7B1C9AB9DE000A7530 /* LaunchScreen.storyboard in Resources */,
 				D83173E41CCBC7BE0014A844 /* Star.xib in Resources */,
+				D8ED52CA1E4C446E0038111D /* SwitchTableViewCell.xib in Resources */,
 				877FC4831D81943800941371 /* Assets.xcassets in Resources */,
 				D8FE8C731C9AB9DE000A7530 /* Main.storyboard in Resources */,
+				D8ED52CF1E4C47310038111D /* NoSwitchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +589,7 @@
 				D8F11D1A1CC3AEFA00B95B16 /* TimeLineViewController.m in Sources */,
 				D8FE8C701C9AB9DE000A7530 /* MainViewController.m in Sources */,
 				D8FE8C6D1C9AB9DE000A7530 /* AppDelegate.m in Sources */,
+				D8ED52CE1E4C47310038111D /* NoSwitchTableViewCell.m in Sources */,
 				D83173F11CCC8C610014A844 /* PassCodeViewController.m in Sources */,
 				D8002E491CD3326300A1819D /* SecondTagsViewController.m in Sources */,
 				D83173F61CCC92880014A844 /* NewPassCodeViewController.m in Sources */,
@@ -579,6 +598,7 @@
 				D8DA6B5F1C9FC9B100ACEE70 /* Memory.m in Sources */,
 				D84EC8C01CB37C57001E1813 /* RecordViewController.m in Sources */,
 				D80D51D91CCBB336008E17BB /* StarViewController.m in Sources */,
+				D8ED52C91E4C446E0038111D /* SwitchTableViewCell.m in Sources */,
 				D8693A8A1CCA3F8100A9390B /* DiaryViewController.m in Sources */,
 				D8FE8C6A1C9AB9DE000A7530 /* main.m in Sources */,
 				D8A6AB681CC8CD4F00F5516B /* TextTableViewCell.m in Sources */,

@@ -10,11 +10,12 @@
 #import "NewPassCodeViewController.h"
 #import "MainViewController.h"
 #import "OldPasscodeViewController.h"
+#import "SwitchTableViewCell.h"
+#import "NoSwitchTableViewCell.h"
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 @interface SettingViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSDictionary *dataSource;
-@property (strong, nonatomic) UISwitch *select;
 @end
 
 @implementation SettingViewController
@@ -36,32 +37,24 @@
     NSArray *keys = [self.dataSource allKeys];
     NSString *key = [keys objectAtIndex:section];
     NSArray *values = [self.dataSource objectForKey:key];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cid"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cid"];
-    }
     if (indexPath.row == 0) {
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, cell.contentView.frame.size.height)];
-        [cell.contentView addSubview:label];
-        self.select = [[UISwitch alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-60, 5, 20, cell.contentView.frame.size.height)];
-        [self.select addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
-        self.select.tag = indexPath.section*10 + indexPath.row;
+        SwitchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SwitchTableViewCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.cellName.text = [values objectAtIndex:row];
+        [cell.select addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+        cell.select.tag = indexPath.section*10 + indexPath.row;
         if ([[values objectAtIndex:row] isEqualToString:@"Passcode"]) {
-            self.select.on = [userDefault boolForKey:@"password"];
+            cell.select.on = [userDefault boolForKey:@"password"];
         }
         if ([[values objectAtIndex:row] isEqualToString:@"Touch ID"]) {
-            self.select.on = [userDefault boolForKey:@"touchID"];
+            cell.select.on = [userDefault boolForKey:@"touchID"];
         }
-        [cell.contentView addSubview:self.select];
-        label.text = [values objectAtIndex:row];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else{
+        NoSwitchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoSwitchTableViewCell"];
+        cell.cellName.text = [values objectAtIndex:row];
         return cell;
     }
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, cell.contentView.frame.size.height)];
-    [cell.contentView addSubview:label];
-    label.text = [values objectAtIndex:row];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
 }
 -(void)switchAction:(UISwitch *)sender{
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
@@ -85,8 +78,7 @@
     if (sender.tag == 00 && sender.on == NO) {
         [userDefauts setBool:NO forKey:@"password"];
         [userDefauts setBool:NO forKey:@"touchID"];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
-        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadData];
 
     }
     if (sender.tag == 10 && sender.on == YES) {
@@ -146,6 +138,8 @@
     self.dataSource = @{@"  ":@[@"Touch ID"],@" ":@[@"Passcode",@"Change Passcode"]};
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"SwitchTableViewCell" bundle:nil] forCellReuseIdentifier:@"SwitchTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NoSwitchTableViewCell" bundle:nil] forCellReuseIdentifier:@"NoSwitchTableViewCell"];
     //self.tableView.table
     // Do any additional setup after loading the view.
 }

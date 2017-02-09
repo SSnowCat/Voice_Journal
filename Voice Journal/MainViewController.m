@@ -21,12 +21,8 @@
 
 @interface MainViewController () <UIGestureRecognizerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *tagIcon;
-@property (strong, nonatomic) IBOutlet UIImageView *tagImg1;
-@property (strong, nonatomic) IBOutlet UILabel *moreTag;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImg;
-@property (strong, nonatomic) IBOutlet UIImageView *recordImg;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
-@property (strong, nonatomic) IBOutlet UILabel *weatherLabel;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *recentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *textLabel;
@@ -52,6 +48,7 @@
 @property (nonatomic, strong) NSMutableArray *dayscount;
 @property (nonatomic, strong) NSMutableArray *todaycount;
 @property (nonatomic, strong) NSMutableArray *weekscount;
+@property (nonatomic, assign) NSInteger fileCount;
 @end
 
 @implementation MainViewController
@@ -168,37 +165,6 @@
     double usedMemory = (totalMemory - freeMemory)*1.0/totalMemory;
     self.memory.progress = usedMemory;
 }
--(void)loadJson{
-    NSString *httpUrl = @"http://apis.baidu.com/apistore/weatherservice/cityname";
-    NSString *httpArg = [NSString stringWithFormat:@"cityname=%@",self.subcitystr];
-    [self request: httpUrl withHttpArg: httpArg];
-}
--(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
-    NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
-    NSURL *url = [NSURL URLWithString: urlStr];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
-    [request setHTTPMethod: @"GET"];
-    [request addValue: @"8c9be435471392c09e21b17d30020853" forHTTPHeaderField: @"apikey"];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *datatask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
-        } else {
-            NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSDictionary *weatherResult= [weatherDic objectForKey:@"retData"];
-            //展示结果
-            if (weatherResult.count == 0) {
-                self.weatherLabel.text = @"－－";
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSString *tem = [NSString stringWithFormat:@"%@/%@℃",[weatherResult objectForKey:@"l_tmp"],[weatherResult objectForKey:@"h_tmp"]];
-                    self.weatherLabel.text = tem;
-                });
-            }
-        }
-    }];
-    [datatask resume];
-}
 -(void)addGestureRecognizer:(UIView*)tapView {
     //
     NSArray *gestures = tapView.gestureRecognizers;
@@ -215,12 +181,19 @@
 }
 -(void)tapView:(UITapGestureRecognizer*) recognizer{
     if (recognizer.view.tag == 9999) {
-        DiaryViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sixth_id"];
-        DVC.setting = self.setting;
-        DVC.bigDocName = self.bigDocName;
-        DVC.smallDocName = self.smallDocName;
-        DVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.navigationController pushViewController:DVC animated:YES];
+        if (self.fileCount == 0) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误" message:@"无日志显示" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }]];
+            [self presentViewController:alert animated:YES completion:nil];
+        }else{
+            DiaryViewController *DVC = [self.storyboard instantiateViewControllerWithIdentifier:@"sixth_id"];
+            DVC.setting = self.setting;
+            DVC.bigDocName = self.bigDocName;
+            DVC.smallDocName = self.smallDocName;
+            DVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self.navigationController pushViewController:DVC animated:YES];
+        }
     }
 }
 
@@ -236,15 +209,6 @@
             }
             NSString *addr = [NSString stringWithFormat:@"%@ %@",mark.locality,mark.administrativeArea];
             self.addressLabel.text = addr;
-            NSString *str = mark.locality;
-            if([str length] > 0){
-                str = [str substringToIndex:([str length]-1)];// 去掉最后一个","
-            }else{
-                str = mark.locality;
-            }
-            str = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-            self.subcitystr = str;
-            [self loadJson];
         }];
         
     }
@@ -281,24 +245,16 @@
     self.setting = [[NSArray alloc]initWithContentsOfFile:filePath];
     if (self.setting.count == 0) {
         self.starImg.hidden = YES;
-        self.recordImg.hidden = YES;
         self.photoImg.hidden = YES;
         self.textView.text = @"无内容";
-        self.tagImg1.hidden = YES;
         self.tagImg.hidden = YES;
         self.titleLabel.hidden = YES;
-        self.moreTag.hidden = YES;
         self.tagIcon.hidden = YES;
     }else{
         if ([[self.setting objectAtIndex:0] isEqualToString:@" "]) {
             self.photoImg.hidden = YES;
         }else{
             self.photoImg.hidden = NO;
-        }
-        if ([[self.setting objectAtIndex:1] isEqualToString:@" "]) {
-            self.recordImg.hidden = YES;
-        }else{
-            self.recordImg.hidden = NO;
         }
         if ([[self.setting objectAtIndex:2] isEqualToString:@" "]) {
             self.textView.text = @"无内容";
@@ -314,22 +270,16 @@
         if ([[self.setting objectAtIndex:6] isEqualToString:@" "]) {
             self.titleLabel.hidden = YES;
             self.tagImg.hidden = YES;
-            self.tagImg1.hidden = YES;
-            self.moreTag.hidden = YES;
             self.tagIcon.hidden = YES;
         }else{
             NSString *path = [NSString stringWithFormat:@"%@",[self.setting objectAtIndex:6]];
             NSArray *tags = [[NSArray alloc]initWithContentsOfFile:path];
             if (tags.count == 1) {
-                self.tagImg1.hidden = YES;
-                self.moreTag.hidden = YES;
                 self.tagImg.hidden = NO;
                 self.titleLabel.hidden = NO;
                 self.tagIcon.hidden = NO;
                 self.titleLabel.text = [tags objectAtIndex:0];
             }else{
-                self.tagImg1.hidden = NO;
-                self.moreTag.hidden = NO;
                 self.tagImg.hidden = NO;
                 self.titleLabel.hidden = NO;
                 self.tagIcon.hidden = NO;
@@ -349,12 +299,12 @@
     [self.manager requestWhenInUseAuthorization];//使用程序其间允许访问位置数据（iOS8定位需要）
     [self.manager startUpdatingLocation];
     self.addressLabel.text = @"－－";
-    self.weatherLabel.text = @"－－";
 
 }
 -(void)getcount{
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray *fileList = [fm contentsOfDirectoryAtPath:[self.record getDoc] error:nil];
+    self.fileCount = fileList.count;
     NSMutableArray *bigDoc = [[NSMutableArray alloc] init];
     self.total = [[NSMutableArray alloc]init];
     self.dayscount = [[NSMutableArray alloc]init];
@@ -439,13 +389,10 @@
     [self addGestureRecognizer:self.textView];
     self.titleLabel.hidden = YES;
     self.tagImg.hidden = YES;
-    self.tagImg1.hidden = YES;
-    self.moreTag.hidden = YES;
     self.tagIcon.hidden = YES;
     [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     self.picker  = [[UIImagePickerController alloc]init];
     self.addressLabel.adjustsFontSizeToFitWidth = YES;
-    self.weatherLabel.adjustsFontSizeToFitWidth = YES;
     self.recentLabel.adjustsFontSizeToFitWidth = YES;
     self.textLabel.adjustsFontSizeToFitWidth = YES;
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -457,7 +404,6 @@
     [self.textView setContentSize:size];
     self.textView.scrollEnabled = NO;
     self.starImg.hidden = YES;
-    self.recordImg.hidden = YES;
     self.photoImg.hidden = YES;
     self.weeks.text = @"0";
 }

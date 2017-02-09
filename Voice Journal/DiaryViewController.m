@@ -76,6 +76,7 @@
         self.textView.frame = CGRectMake(10,0, self.view.frame.size.width-20, self.view.frame.size.height - 118);
     }else{
         NSData *data = [NSData dataWithContentsOfFile:[self.setting objectAtIndex:0]];
+        self.imgView.clipsToBounds = YES;
         self.imgView.image = [UIImage imageWithData:data];
     }
     if ([[self.setting objectAtIndex:1] isEqualToString:@" "]) {

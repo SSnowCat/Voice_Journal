@@ -19,6 +19,8 @@
 }
 -(void)prepareLayout{
     self.img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height)];
+    self.img.contentMode = UIViewContentModeScaleAspectFill;
+    self.img.clipsToBounds = YES;
     self.timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.contentView.frame.size.width-50, 80, 50, 20)];
     self.dayLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.contentView.frame.size.width-50, 100, 50, 50)];
     self.weekLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.contentView.frame.size.width-140, 165, 50, 20)];
