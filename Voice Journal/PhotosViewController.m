@@ -143,8 +143,9 @@ static NSString *cid = @"cid";
         NSMutableArray *values = [self.dataSource objectForKey:[keys objectAtIndex:indexPath.section]];
         //删除沙盒文件
         NSFileManager *fm = [NSFileManager defaultManager];
-        NSString *path = [NSString stringWithFormat:@"%@/%@/%@", [self.record getDoc],
-                                   [keys objectAtIndex:indexPath.section], [values objectAtIndex:indexPath.row]];
+        NSString *path =
+          [NSString stringWithFormat:@"%@/%@/%@", [self.record getDoc], [keys objectAtIndex:indexPath.section],
+                                     [values objectAtIndex:indexPath.row]];
         NSString *bigDirPath =
           [NSString stringWithFormat:@"%@/%@", [self.record getDoc], [keys objectAtIndex:indexPath.section]];
         NSArray *fileList = [fm contentsOfDirectoryAtPath:path error:nil];
@@ -343,8 +344,8 @@ static NSString *cid = @"cid";
     self.title = @"Photos";
     [self.navigationController.navigationBar
       setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],
-                                           NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName,
-                                           nil]];
+                                                                        NSFontAttributeName, [UIColor whiteColor],
+                                                                        NSForegroundColorAttributeName, nil]];
 
     UIButton *doneBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 46, 30)];
     [doneBtn setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
