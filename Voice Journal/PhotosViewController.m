@@ -58,12 +58,11 @@ static NSString *cid = @"cid";
                                             handler:^(UIAlertAction *_Nonnull action) {
                                                 [self LocalPhoto];
                                             }]];
-    [alert addAction:[UIAlertAction
-                       actionWithTitle:@"Cancel"
-                                 style:UIAlertActionStyleDestructive
-                               handler:^(UIAlertAction *_Nonnull action) {
-                                   nil;
-                               }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                              style:UIAlertActionStyleDestructive
+                                            handler:^(UIAlertAction *_Nonnull action) {
+                                                nil;
+                                            }]];
     alert.view.tintColor = [UIColor blackColor];
     [self presentViewController:alert animated:YES completion:nil];
 }
