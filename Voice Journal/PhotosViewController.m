@@ -65,6 +65,7 @@ static NSString *cid = @"cid";
     [self presentViewController:alert animated:YES completion:nil];
 }
 - (void)getSectionAndRow {
+
     self.dataSource = [[NSMutableDictionary alloc] init];
     NSFileManager *fm = [NSFileManager defaultManager];
     NSArray *fileList = [fm contentsOfDirectoryAtPath:[self.record getDoc] error:nil];
