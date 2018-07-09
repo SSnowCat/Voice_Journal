@@ -53,12 +53,11 @@ static NSString *cid = @"cid";
                                                                  completion:^{
                                                                  }];
                                             }]];
-    [alert addAction:[UIAlertAction
-                       actionWithTitle:@"Choose from Library"
-                                 style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *_Nonnull action) {
-                                   [self LocalPhoto];
-                               }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Choose from Library"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction *_Nonnull action) {
+                                                [self LocalPhoto];
+                                            }]];
     [alert addAction:[UIAlertAction
                        actionWithTitle:@"Cancel"
                                  style:UIAlertActionStyleDestructive
