@@ -33,9 +33,7 @@ static NSString *cid = @"cid";
     self.fileName = [NSString stringWithFormat:@"%@.png", [self.record getTime]];
     self.imagePath =
       [NSString stringWithFormat:@"%@/%@", [self.record getDoc], self.fileName];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
-                                                                   message:nil
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
     [alert addAction:[UIAlertAction actionWithTitle:@"Take Photo"
                                               style:UIAlertActionStyleDefault
