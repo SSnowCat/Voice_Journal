@@ -27,18 +27,18 @@ BOOL toggleForStop = NO;
 @property (strong, nonatomic) IBOutlet UIButton *start;
 @property (strong, nonatomic) IBOutlet UIButton *stop;
 @property (strong, nonatomic) IBOutlet UIButton *done;
-@property (nonatomic, strong) AVAudioRecorder *audioRecorder; //音频录音机
-@property (strong, nonatomic) NSString *urlPath;
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer; //音频播放器，用于播放录音文件
-@property (nonatomic, strong) Record *record;
-@property (nonatomic, strong) NSString *filename;
-@property (nonatomic, strong) NSString *docName;
-@property (nonatomic, strong) NSString *newurlPath;
-@property (nonatomic, strong) NSString *fileName;
-@property (nonatomic, strong) NSTimer *timer1;
-@property (nonatomic, assign) int sCount;
-@property (nonatomic, assign) int mCount;
-@property (nonatomic, assign) int hCount;
+@property (nonatomic, strong) AVAudioRecorder *  audioRecorder; //音频录音机
+@property (strong, nonatomic) NSString *         urlPath;
+@property (nonatomic, strong) AVAudioPlayer *    audioPlayer; //音频播放器，用于播放录音文件
+@property (nonatomic, strong) Record *           record;
+@property (nonatomic, strong) NSString *         filename;
+@property (nonatomic, strong) NSString *         docName;
+@property (nonatomic, strong) NSString *         newurlPath;
+@property (nonatomic, strong) NSString *         fileName;
+@property (nonatomic, strong) NSTimer *          timer1;
+@property (nonatomic, assign) int                sCount;
+@property (nonatomic, assign) int                mCount;
+@property (nonatomic, assign) int                hCount;
 @end
 
 @implementation RecordViewController
@@ -76,7 +76,7 @@ BOOL toggleForStop = NO;
     NSString *encodingString = [self.urlPath stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSString *path = [NSString stringWithFormat:@"%@/%@.caf", [self.record getDoc], encodingString];
     if (!_audioPlayer) {
-        NSURL *url = [NSURL URLWithString:path];
+        NSURL *  url = [NSURL URLWithString:path];
         NSError *error = nil;
         _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
         _audioPlayer.numberOfLoops = 0;
@@ -188,7 +188,7 @@ BOOL toggleForStop = NO;
                                                          style:UIAlertActionStyleDefault
                                                        handler:^(UIAlertAction *_Nonnull action) {
 
-                                                           NSArray *textField = alert.textFields;
+                                                           NSArray *    textField = alert.textFields;
                                                            UITextField *filename = textField[0];
                                                            [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
                                                            self.fileName = [NSString stringWithFormat:@"%@.caf", filename.text];
@@ -214,7 +214,7 @@ BOOL toggleForStop = NO;
 - (void)alertTextFieldDidChange:(NSNotification *)notification {
     UIAlertController *alertController = (UIAlertController *) self.presentedViewController;
     if (alertController) {
-        UITextField *login = alertController.textFields.firstObject;
+        UITextField *  login = alertController.textFields.firstObject;
         UIAlertAction *saveAction = alertController.actions.lastObject;
         saveAction.enabled = login.text.length > 0;
     }
