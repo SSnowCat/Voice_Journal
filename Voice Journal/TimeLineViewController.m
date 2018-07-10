@@ -59,7 +59,8 @@
         BOOL isDir1 = NO;
         //在上面那段程序中获得的fileList中列出文件夹名
         for (NSString *file in fileList1) {
-            NSString *path1 = [[NSString stringWithFormat:@"%@/%@", [self.record getDoc], bigdoc] stringByAppendingPathComponent:file];
+            NSString *path1 = [[NSString stringWithFormat:@"%@/%@",
+                                         [self.record getDoc], bigdoc] stringByAppendingPathComponent:file];
             [fm fileExistsAtPath:path1 isDirectory:(&isDir1)];
             if (isDir1) {
                 [smallDoc addObject:file];
@@ -75,6 +76,7 @@
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     [self initUI];
     // Do any additional setup after loading the view.
