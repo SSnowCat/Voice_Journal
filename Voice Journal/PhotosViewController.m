@@ -17,13 +17,13 @@
 
 @interface PhotosViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableDictionary *dataSource;
-@property (strong, nonatomic) Record *record;
-@property (strong, nonatomic) NSString *subtime;
-@property (strong, nonatomic) NSString *day;
-@property (strong, nonatomic) UIImagePickerController *picker;
-@property (nonatomic, strong) NSString *imagePath;
-@property (nonatomic, strong) NSString *fileName;
+@property (strong, nonatomic) NSMutableDictionary *      dataSource;
+@property (strong, nonatomic) Record *                   record;
+@property (strong, nonatomic) NSString *                 subtime;
+@property (strong, nonatomic) NSString *                 day;
+@property (strong, nonatomic) UIImagePickerController *  picker;
+@property (nonatomic, strong) NSString *                 imagePath;
+@property (nonatomic, strong) NSString *                 fileName;
 @end
 
 static NSString *cid = @"cid";
@@ -235,7 +235,7 @@ static NSString *cid = @"cid";
 - (NSArray *)getSettingWithIndexPath:(NSIndexPath *)indexPath {
     NSArray *key = [self.dataSource allKeys];
     NSString *bigDocName = [key objectAtIndex:indexPath.section];
-    NSArray *value = [self.dataSource objectForKey:bigDocName];
+    NSArray * value = [self.dataSource objectForKey:bigDocName];
     NSString *smallDocName = [value objectAtIndex:indexPath.row];
     NSString *time = [smallDocName substringFromIndex:6];
     self.subtime = [time substringToIndex:6];
@@ -252,7 +252,7 @@ static NSString *cid = @"cid";
     [inputFormatter
       setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     [inputFormatter setDateFormat:@"yyyy年 MM月 dd日"];
-    NSDate *inputDate = [inputFormatter dateFromString:date];
+    NSDate *         inputDate = [inputFormatter dateFromString:date];
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setLocale:[NSLocale currentLocale]];
     [outputFormatter setDateFormat:@"EEEE"];
@@ -261,7 +261,7 @@ static NSString *cid = @"cid";
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *setting = [self getSettingWithIndexPath:indexPath];
+    NSArray *             setting = [self getSettingWithIndexPath:indexPath];
     MyCollectionViewCell *cell =
       [collectionView dequeueReusableCellWithReuseIdentifier:cid
                                                 forIndexPath:indexPath];
@@ -336,7 +336,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
     NSArray *keys = [self.dataSource allKeys];
-    NSString *key = [keys objectAtIndex:indexPath.section];
+    NSString *                key = [keys objectAtIndex:indexPath.section];
     UICollectionReusableView *reusableview = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         UICollectionReusableView *headerView =
@@ -365,7 +365,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
     NSArray *key = [self.dataSource allKeys];
     NSString *bigDocName = [key objectAtIndex:indexPath.section];
-    NSArray *value = [self.dataSource objectForKey:bigDocName];
+    NSArray * value = [self.dataSource objectForKey:bigDocName];
     NSString *smallDocName = [value objectAtIndex:indexPath.row];
     NSString *path =
       [NSString stringWithFormat:@"%@/%@/%@/setting.txt", [self.record getDoc],

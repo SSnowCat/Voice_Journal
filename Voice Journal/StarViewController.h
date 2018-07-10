@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StarViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface StarViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

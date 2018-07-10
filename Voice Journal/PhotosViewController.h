@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotosViewController : UIViewController<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-
+@interface PhotosViewController : UIViewController<UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

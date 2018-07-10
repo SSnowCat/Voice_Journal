@@ -6,11 +6,10 @@
 //  Copyright © 2016年 Joe. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController<CLLocationManagerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface MainViewController : UIViewController<CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) NSString *weather;
 @property (nonatomic, strong) NSString *address;
 @end
-

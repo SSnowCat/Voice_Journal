@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TagsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface TagsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @end

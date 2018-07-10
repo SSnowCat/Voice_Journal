@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface MyCollectionViewCell : UICollectionViewCell
-@property(nonatomic,strong)UILabel *timeLabel;
-@property(nonatomic,strong)UILabel *dayLabel;
-@property(nonatomic,strong)UILabel *weekLabel;
-@property(nonatomic,strong)UILabel *yearLabel;
-@property(nonatomic,strong)UIImageView *img;
+@property (nonatomic, strong) UILabel *    timeLabel;
+@property (nonatomic, strong) UILabel *    dayLabel;
+@property (nonatomic, strong) UILabel *    weekLabel;
+@property (nonatomic, strong) UILabel *    yearLabel;
+@property (nonatomic, strong) UIImageView *img;
 
--(void)prepareLayout;
+- (void)prepareLayout;
 @end

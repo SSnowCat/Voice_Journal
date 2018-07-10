@@ -23,8 +23,8 @@
 - (IBAction)cancel:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)setUI{
-    self.view.backgroundColor = [UIColor colorWithRed:144.0/255.0 green:200.0/255.0 blue:194.0/255.0 alpha:1.0];
+- (void)setUI {
+    self.view.backgroundColor = [UIColor colorWithRed:144.0 / 255.0 green:200.0 / 255.0 blue:194.0 / 255.0 alpha:1.0];
     self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];
     self.img2.image = [UIImage imageNamed:@"PasscodeCircle"];
     self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
@@ -32,12 +32,11 @@
     self.textView.hidden = YES;
     self.textView.keyboardType = UIKeyboardTypeNumberPad;
     [self.textView addTarget:self action:@selector(txchange:) forControlEvents:UIControlEventEditingChanged];
-    
+
     //进入界面，topTX成为第一响应
     [self.textView becomeFirstResponder];
 }
-- (void)txchange:(UITextField *)tx
-{
+- (void)txchange:(UITextField *)tx {
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     NSString *password = tx.text;
     if (password.length == 0) {
@@ -61,15 +60,14 @@
         self.img3.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
         self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     }
-    if (password.length == 4)
-    {
+    if (password.length == 4) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.img4.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
         });
         if ([password isEqualToString:[userDefauts objectForKey:@"passcode"]]) {
             NewPassCodeViewController *NPCVC = [self.storyboard instantiateViewControllerWithIdentifier:@"nineth_id"];
             [self.navigationController pushViewController:NPCVC animated:YES];
-        }else{
+        } else {
             [tx setText:@""];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];
@@ -86,7 +84,7 @@
     [self setUI];
     // Do any additional setup after loading the view.
 }
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar setHidden:YES];
 }
 - (void)didReceiveMemoryWarning {

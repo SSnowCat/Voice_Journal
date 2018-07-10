@@ -20,33 +20,35 @@
 @end
 
 @implementation PassCodeViewController
-- (void)authenticateUser{
+- (void)authenticateUser {
     //初始化上下文对象
-    LAContext* context = [[LAContext alloc] init];
+    LAContext *context = [[LAContext alloc] init];
     //错误对象
-    NSError* error = nil;
-    NSString* result = @"验证指纹解锁";
+    NSError * error = nil;
+    NSString *result = @"验证指纹解锁";
     //首先使用canEvaluatePolicy 判断设备支持状态
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         //支持指纹验证
-        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:result reply:^(BOOL success, NSError *error) {
-            if (success) {
-                //验证成功，主线程处理UI
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    MainViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
-                    UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:VC];
-                    [self presentViewController:rootNavCon animated:YES completion:nil];
-                });
-            }
-        }];
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                localizedReason:result
+                          reply:^(BOOL success, NSError *error) {
+                              if (success) {
+                                  //验证成功，主线程处理UI
+                                  dispatch_sync(dispatch_get_main_queue(), ^{
+                                      MainViewController *    VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
+                                      UINavigationController *rootNavCon = [[UINavigationController alloc] initWithRootViewController:VC];
+                                      [self presentViewController:rootNavCon animated:YES completion:nil];
+                                  });
+                              }
+                          }];
     }
 }
--(void)setUI{
+- (void)setUI {
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     if ([userDefauts boolForKey:@"touchID"] == YES) {
         [self authenticateUser];
     }
-    self.view.backgroundColor = [UIColor colorWithRed:144.0/255.0 green:200.0/255.0 blue:194.0/255.0 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithRed:144.0 / 255.0 green:200.0 / 255.0 blue:194.0 / 255.0 alpha:1.0];
     self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];
     self.img2.image = [UIImage imageNamed:@"PasscodeCircle"];
     self.img3.image = [UIImage imageNamed:@"PasscodeCircle"];
@@ -54,12 +56,11 @@
     self.passCode.hidden = YES;
     self.passCode.keyboardType = UIKeyboardTypeNumberPad;
     [self.passCode addTarget:self action:@selector(txchange:) forControlEvents:UIControlEventEditingChanged];
-    
+
     //进入界面，topTX成为第一响应
     [self.passCode becomeFirstResponder];
 }
-- (void)txchange:(UITextField *)tx
-{
+- (void)txchange:(UITextField *)tx {
     NSUserDefaults *userDefauts = [NSUserDefaults standardUserDefaults];
     NSString *password = tx.text;
     if (password.length == 0) {
@@ -83,17 +84,16 @@
         self.img3.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
         self.img4.image = [UIImage imageNamed:@"PasscodeCircle"];
     }
-    if (password.length == 4)
-    {
+    if (password.length == 4) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.img4.image = [UIImage imageNamed:@"FilledPasscodeCircle"];
         });
         if ([password isEqualToString:[userDefauts objectForKey:@"passcode"]]) {
             [tx resignFirstResponder];
-            MainViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
-            UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:VC];
+            MainViewController *    VC = [self.storyboard instantiateViewControllerWithIdentifier:@"first_id"];
+            UINavigationController *rootNavCon = [[UINavigationController alloc] initWithRootViewController:VC];
             [self presentViewController:rootNavCon animated:YES completion:nil];
-        }else{
+        } else {
             [tx setText:@""];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.img1.image = [UIImage imageNamed:@"PasscodeCircle"];

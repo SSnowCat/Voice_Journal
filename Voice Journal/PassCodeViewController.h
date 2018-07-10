@@ -6,8 +6,8 @@
 //  Copyright © 2016年 Joe. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <LocalAuthentication/LocalAuthentication.h>
+#import <UIKit/UIKit.h>
 
 @interface PassCodeViewController : UIViewController
 

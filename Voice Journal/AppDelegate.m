@@ -16,32 +16,28 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *  storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults boolForKey:@"firstLaunch"]) {
         [userDefaults setBool:YES forKey:@"firstLaunch"];
-        MainViewController *detailViewController
-        = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
-        UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:detailViewController];
+        MainViewController *    detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
+        UINavigationController *rootNavCon = [[UINavigationController alloc] initWithRootViewController:detailViewController];
         self.window.rootViewController = rootNavCon;
         [userDefaults setBool:NO forKey:@"password"];
         [userDefaults setObject:nil forKey:@"passcode"];
         [userDefaults setObject:@"first_id" forKey:@"rootView"];
-    }else{
+    } else {
         if ([userDefaults boolForKey:@"password"] == YES) {
-            PassCodeViewController *detailViewController
-            = [storyBoard instantiateViewControllerWithIdentifier:@"eighth_id"];
+            PassCodeViewController *detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"eighth_id"];
             self.window.rootViewController = detailViewController;
             [userDefaults setObject:@"eighth_id" forKey:@"rootView"];
-        }else{
-            MainViewController *detailViewController
-            = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
-            UINavigationController *rootNavCon = [[UINavigationController alloc]initWithRootViewController:detailViewController];
+        } else {
+            MainViewController *    detailViewController = [storyBoard instantiateViewControllerWithIdentifier:@"first_id"];
+            UINavigationController *rootNavCon = [[UINavigationController alloc] initWithRootViewController:detailViewController];
             self.window.rootViewController = rootNavCon;
             [userDefaults setObject:@"first_id" forKey:@"rootView"];
         }
@@ -99,12 +95,12 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    
+
     // Create the coordinator and store
-    
+
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Voice_Journal.sqlite"];
-    NSError *error = nil;
+    NSError * error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         // Report any error we got.
@@ -118,17 +114,16 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
+
     return _persistentStoreCoordinator;
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
-    
+
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (!coordinator) {
         return nil;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondTagsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SecondTagsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSString *tag;
 @end

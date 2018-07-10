@@ -9,13 +9,11 @@
 #import "Memory.h"
 
 @implementation Memory
-+ (NSNumber *)totalDiskSpace
-{
++ (NSNumber *)totalDiskSpace {
     NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
     return [fattributes objectForKey:NSFileSystemSize];
 }
-+ (NSNumber *)freeDiskSpace
-{
++ (NSNumber *)freeDiskSpace {
     NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
     return [fattributes objectForKey:NSFileSystemFreeSize];
 }

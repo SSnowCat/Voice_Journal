@@ -6,11 +6,11 @@
 //  Copyright © 2016年 Joe. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DiaryViewController : UIViewController<AVAudioPlayerDelegate>
-@property (nonatomic, strong) NSArray *setting;
+@property (nonatomic, strong) NSArray * setting;
 @property (nonatomic, strong) NSString *bigDocName;
 @property (nonatomic, strong) NSString *smallDocName;
 @end

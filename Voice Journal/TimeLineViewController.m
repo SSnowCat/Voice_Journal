@@ -17,10 +17,10 @@
 @interface TimeLineViewController ()
 @property (nonatomic, strong) IBOutlet UITableViewCell *textCell;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) Record *record;
-@property (strong, nonatomic) NSMutableDictionary *dataSource;
-@property (strong, nonatomic) NSString *subtime;
-@property (strong, nonatomic) NSString *day;
+@property (strong, nonatomic) Record *              record;
+@property (strong, nonatomic) NSMutableDictionary * dataSource;
+@property (strong, nonatomic) NSString *            subtime;
+@property (strong, nonatomic) NSString *            day;
 @end
 
 @implementation TimeLineViewController
@@ -114,7 +114,7 @@
 - (NSArray *)getSettingWithIndexPath:(NSIndexPath *)indexPath {
     NSArray *key = [self.dataSource allKeys];
     NSString *bigDocName = [key objectAtIndex:indexPath.section];
-    NSArray *value = [self.dataSource objectForKey:bigDocName];
+    NSArray * value = [self.dataSource objectForKey:bigDocName];
     NSString *smallDocName = [value objectAtIndex:indexPath.row];
     NSString *time = [smallDocName substringFromIndex:6];
     self.subtime = [time substringToIndex:6];
@@ -125,22 +125,22 @@
     return setting;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *setting = [self getSettingWithIndexPath:indexPath];
+    NSArray *        setting = [self getSettingWithIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cid"];
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextView" owner:self options:nil];
     if (nib.count > 0) {
         self.textCell = [nib objectAtIndex:0];
         cell = self.textCell;
     }
-    UILabel *timeLabel = (UILabel *) [cell.contentView viewWithTag:2];
-    UITextView *textView = (UITextView *) [cell.contentView viewWithTag:1];
-    UILabel *dayLabel = (UILabel *) [cell.contentView viewWithTag:8];
+    UILabel *    timeLabel = (UILabel *) [cell.contentView viewWithTag:2];
+    UITextView * textView = (UITextView *) [cell.contentView viewWithTag:1];
+    UILabel *    dayLabel = (UILabel *) [cell.contentView viewWithTag:8];
     UIImageView *photo = (UIImageView *) [cell.contentView viewWithTag:4];
     UIImageView *record = (UIImageView *) [cell.contentView viewWithTag:5];
     UIImageView *star = (UIImageView *) [cell.contentView viewWithTag:6];
-    UILabel *tag = (UILabel *) [cell.contentView viewWithTag:7];
+    UILabel *    tag = (UILabel *) [cell.contentView viewWithTag:7];
     UIImageView *img = (UIImageView *) [cell.contentView viewWithTag:9];
-    UILabel *moretag = (UILabel *) [cell.contentView viewWithTag:10];
+    UILabel *    moretag = (UILabel *) [cell.contentView viewWithTag:10];
     UIImageView *img1 = (UIImageView *) [cell.contentView viewWithTag:11];
     UIImageView *img2 = (UIImageView *) [cell.contentView viewWithTag:12];
     if ([[setting objectAtIndex:0] isEqualToString:@" "]) {
@@ -216,7 +216,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSArray *key = [self.dataSource allKeys];
     NSString *bigDocName = [key objectAtIndex:indexPath.section];
-    NSArray *value = [self.dataSource objectForKey:bigDocName];
+    NSArray * value = [self.dataSource objectForKey:bigDocName];
     NSString *smallDocName = [value objectAtIndex:indexPath.row];
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@/setting.txt", [self.record getDoc], bigDocName, smallDocName];
     NSArray *setting = [[NSArray alloc] initWithContentsOfFile:path];

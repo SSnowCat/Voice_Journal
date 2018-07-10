@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Record : NSObject
--(void)createDirWithName:(NSString *)name;
--(NSString *)getDoc;
--(NSString *)createFileWithFileName:(NSString *)filename andDocName:(NSString *)docName;
--(NSString *)getTime;
+- (void)createDirWithName:(NSString *)name;
+- (NSString *)getDoc;
+- (NSString *)createFileWithFileName:(NSString *)filename andDocName:(NSString *)docName;
+- (NSString *)getTime;
 @end

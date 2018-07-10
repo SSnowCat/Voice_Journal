@@ -7,8 +7,8 @@
 //
 
 #import "DiaryViewController.h"
-#import "TimeLineViewController.h"
 #import "EditViewController.h"
+#import "TimeLineViewController.h"
 
 @interface DiaryViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *tag5;
@@ -28,53 +28,53 @@
 @property (strong, nonatomic) IBOutlet UILabel *tag1;
 @property (strong, nonatomic) IBOutlet UIButton *playBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *starred;
-@property (nonatomic, strong) AVAudioPlayer *audioPlayer;//音频播放器，用于播放录音文件
-@property (nonatomic, strong) UIButton *photobtn;
-@property (nonatomic, strong) UIButton *recordbtn;
-@property (nonatomic, strong) UIButton *tagbtn;
-@property (nonatomic, strong) UIButton *starbtn;
-@property (nonatomic, strong) UILabel *tagsLabel;
-@property (nonatomic, assign) NSString *starclickCount;
-@property (nonatomic, strong) NSMutableArray *tagsArr;
+@property (nonatomic, strong) AVAudioPlayer *       audioPlayer; //音频播放器，用于播放录音文件
+@property (nonatomic, strong) UIButton *            photobtn;
+@property (nonatomic, strong) UIButton *            recordbtn;
+@property (nonatomic, strong) UIButton *            tagbtn;
+@property (nonatomic, strong) UIButton *            starbtn;
+@property (nonatomic, strong) UILabel *             tagsLabel;
+@property (nonatomic, assign) NSString *            starclickCount;
+@property (nonatomic, strong) NSMutableArray *      tagsArr;
 @end
 
 @implementation DiaryViewController
 - (IBAction)play:(id)sender {
     if (!_audioPlayer) {
-        NSURL *url=[NSURL fileURLWithPath:[self.setting objectAtIndex:1]];
-        NSError *error=nil;
-        _audioPlayer=[[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
-        _audioPlayer.numberOfLoops=0;
+        NSURL *  url = [NSURL fileURLWithPath:[self.setting objectAtIndex:1]];
+        NSError *error = nil;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+        _audioPlayer.numberOfLoops = 0;
         _audioPlayer.delegate = self;
         [_audioPlayer prepareToPlay];
     }
     [self.audioPlayer play];
 }
 
--(NSString *)getWeek{
-    NSString* string = self.title;
+- (NSString *)getWeek {
+    NSString *       string = self.title;
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     [inputFormatter setDateFormat:@"yyyy年 MM月 dd日"];
-    NSDate* inputDate = [inputFormatter dateFromString:string];
+    NSDate *         inputDate = [inputFormatter dateFromString:string];
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setLocale:[NSLocale currentLocale]];
     [outputFormatter setDateFormat:@"EEEE"];
     NSString *week = [outputFormatter stringFromDate:inputDate];
     return week;
 }
-- (void)keyboardDidShow:(NSNotification *)notification{
+- (void)keyboardDidShow:(NSNotification *)notification {
     NSDictionary *userInfo = [notification userInfo];
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    self.textView.frame = CGRectMake(0, 105, self.view.frame.size.width, self.view.frame.size.height-keyboardSize.height-100);
+    self.textView.frame = CGRectMake(0, 105, self.view.frame.size.width, self.view.frame.size.height - keyboardSize.height - 100);
 }
 
--(void)initUI{
+- (void)initUI {
     self.textView.editable = NO;
     if ([[self.setting objectAtIndex:0] isEqualToString:@" "]) {
         self.imgView.hidden = YES;
-        self.textView.frame = CGRectMake(10,0, self.view.frame.size.width-20, self.view.frame.size.height - 118);
-    }else{
+        self.textView.frame = CGRectMake(10, 0, self.view.frame.size.width - 20, self.view.frame.size.height - 118);
+    } else {
         NSData *data = [NSData dataWithContentsOfFile:[self.setting objectAtIndex:0]];
         self.imgView.clipsToBounds = YES;
         self.imgView.image = [UIImage imageWithData:data];
@@ -84,7 +84,7 @@
     }
     if ([[self.setting objectAtIndex:2] isEqualToString:@" "]) {
         self.textView.text = @"无文字内容";
-    }else{
+    } else {
         NSString *text = [NSString stringWithContentsOfFile:[self.setting objectAtIndex:2] encoding:NSUTF8StringEncoding error:nil];
         self.textView.text = text;
     }
@@ -103,9 +103,9 @@
         self.tag3.hidden = YES;
         self.tag4.hidden = YES;
         self.tag5.hidden = YES;
-    }else{
-        NSString *path = [NSString stringWithFormat:@"%@",[self.setting objectAtIndex:6]];
-        self.tagsArr = [[NSMutableArray alloc]initWithContentsOfFile:path];
+    } else {
+        NSString *path = [NSString stringWithFormat:@"%@", [self.setting objectAtIndex:6]];
+        self.tagsArr = [[NSMutableArray alloc] initWithContentsOfFile:path];
         if (self.tagsArr.count == 0) {
             self.tagIcon.hidden = YES;
             self.img1.hidden = YES;
@@ -118,7 +118,7 @@
             self.tag3.hidden = YES;
             self.tag4.hidden = YES;
             self.tag5.hidden = YES;
-        }else{
+        } else {
             switch (self.tagsArr.count) {
                 case 1:
                     self.tag1.text = [self.tagsArr objectAtIndex:0];
@@ -167,7 +167,6 @@
                     break;
             }
         }
-
     }
     self.time.text = [self.setting objectAtIndex:5];
     self.week.text = [self getWeek];
@@ -177,12 +176,12 @@
     [self initUI];
     // Do any additional setup after loading the view.
 }
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar setHidden:NO];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Nav Bar"] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     self.title = [self.setting objectAtIndex:4];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f],UITextAttributeFont,[UIColor whiteColor],UITextAttributeTextColor,nil]];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:17.0f], UITextAttributeFont, [UIColor whiteColor], UITextAttributeTextColor, nil]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
